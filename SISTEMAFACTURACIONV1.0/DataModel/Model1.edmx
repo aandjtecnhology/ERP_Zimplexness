@@ -1,0 +1,2338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbsitemfacturacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Table_Almacen">
+          <Key>
+            <PropertyRef Name="IdAlmacen" />
+          </Key>
+          <Property Name="IdAlmacen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Codigo" Type="nchar" MaxLength="10" />
+          <Property Name="IdEncargado" Type="int" />
+          <Property Name="IDZona" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_Articulos">
+          <Key>
+            <PropertyRef Name="IDArticulo" />
+          </Key>
+          <Property Name="IDArticulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCategoria" Type="int" Nullable="false" />
+          <Property Name="IdAlmacen" Type="int" />
+          <Property Name="IdUbicacion" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Stock" Type="float" />
+          <Property Name="Iva" Type="float" />
+        </EntityType>
+        <EntityType Name="Table_Banco">
+          <Key>
+            <PropertyRef Name="IdBanco" />
+          </Key>
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="50" />
+          <Property Name="TipoCuenta" Type="varchar" MaxLength="50" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="CBU" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="int" Nullable="false" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_CentroCosto">
+          <Key>
+            <PropertyRef Name="IdCentroCosto" />
+          </Key>
+          <Property Name="IdCentroCosto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CentroCosto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Comprobante">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="4" />
+          <Property Name="NoFactura" Type="varchar" MaxLength="8" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="FechaVencimiento" Type="date" />
+          <Property Name="IdTipoComprobante" Type="int" />
+          <Property Name="IdCentroCosto" Type="int" />
+          <Property Name="IdTipoFactura" Type="int" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Contable" Type="int" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="IdCondicionCompra" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IIBB" Type="float" />
+          <Property Name="Retenciones" Type="float" />
+          <Property Name="ConceptosNograbado" Type="float" />
+        </EntityType>
+        <EntityType Name="Table_CondicionCompra">
+          <Key>
+            <PropertyRef Name="IdCondicionCompra" />
+          </Key>
+          <Property Name="IdCondicionCompra" Type="int" Nullable="false" />
+          <Property Name="Condiciondecompra" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Contable">
+          <Key>
+            <PropertyRef Name="IdContable" />
+          </Key>
+          <Property Name="IdContable" Type="int" Nullable="false" />
+          <Property Name="Contable" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Table_CuentaCorriente">
+          <Key>
+            <PropertyRef Name="IdCuentaCorriente" />
+          </Key>
+          <Property Name="IdCuentaCorriente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDProveedor" Type="int" />
+          <Property Name="Nombre" Type="nchar" MaxLength="11" />
+          <Property Name="Vencimiento" Type="int" />
+          <Property Name="Comentario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_DetalleMediosPago">
+          <Key>
+            <PropertyRef Name="IdDetalleMedioPago" />
+          </Key>
+          <Property Name="IdDetalleMedioPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMedioPago" Type="int" />
+          <Property Name="NoCheque" Type="varchar" MaxLength="50" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="IdPago" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_DetallePago">
+          <Key>
+            <PropertyRef Name="IdDetallePago" />
+          </Key>
+          <Property Name="IdDetallePago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idComprobante" Type="int" />
+          <Property Name="IdPago" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_DetallesComprobanteArticulos">
+          <Key>
+            <PropertyRef Name="idTable_DetallesComprobanteArticulos" />
+          </Key>
+          <Property Name="idTable_DetallesComprobanteArticulos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComprobante" Type="int" />
+          <Property Name="IdArticulo" Type="int" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="IvaCalculado" Type="float" />
+        </EntityType>
+        <EntityType Name="Table_Empleado">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="cuit" Type="nchar" MaxLength="8" />
+          <Property Name="cuil" Type="nchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Table_Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Razon" Type="varchar" MaxLength="50" />
+          <Property Name="CUIT" Type="nchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="idProvincia" Type="int" />
+          <Property Name="IdLocalidad" Type="int" />
+          <Property Name="CodigoPostal" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Table_Estados">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="int" Nullable="false" />
+          <Property Name="Estados" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_IngresoMateriales">
+          <Key>
+            <PropertyRef Name="iDingresoMateriales" />
+          </Key>
+          <Property Name="iDingresoMateriales" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="NoRemito" Type="nchar" MaxLength="12" />
+          <Property Name="IdAlmacen" Type="int" />
+          <Property Name="IdRecepcion" Type="int" />
+          <Property Name="idArticulo" Type="int" />
+          <Property Name="Cantidad" Type="float" />
+        </EntityType>
+        <EntityType Name="Table_Localidades">
+          <Key>
+            <PropertyRef Name="IdLocalidad" />
+          </Key>
+          <Property Name="IdLocalidad" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Localidades" Type="varchar" MaxLength="50" />
+          <Property Name="CodigoPostal" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Table_MedioPago">
+          <Key>
+            <PropertyRef Name="IdMedioPago" />
+          </Key>
+          <Property Name="IdMedioPago" Type="int" Nullable="false" />
+          <Property Name="MediosPago" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Pagos">
+          <Key>
+            <PropertyRef Name="Idpago" />
+          </Key>
+          <Property Name="Idpago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="idMedioPago" Type="int" />
+          <Property Name="idCuentaCorriente" Type="int" />
+          <Property Name="Nocheque" Type="nchar" MaxLength="15" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Concepto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Profiles">
+          <Key>
+            <PropertyRef Name="Id_Profiles" />
+          </Key>
+          <Property Name="Id_Profiles" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Profiles" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Table_Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedores" />
+          </Key>
+          <Property Name="IdProveedores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Razon" Type="varchar" MaxLength="150" />
+          <Property Name="Cuit" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="IngresosBrutos" Type="nchar" MaxLength="20" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="IDProvincia" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDLocalidad" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Telefono" Type="nchar" MaxLength="25" />
+          <Property Name="FechaIngreso" Type="date" />
+        </EntityType>
+        <EntityType Name="Table_Provincias">
+          <Key>
+            <PropertyRef Name="IDProvincias" />
+          </Key>
+          <Property Name="IDProvincias" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Provincias" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_TipoComprobante">
+          <Key>
+            <PropertyRef Name="IdTipoComprobante" />
+          </Key>
+          <Property Name="IdTipoComprobante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoComprobante" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_TipoFactura">
+          <Key>
+            <PropertyRef Name="IdTipoFactura" />
+          </Key>
+          <Property Name="IdTipoFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoFactura" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Ubicacion">
+          <Key>
+            <PropertyRef Name="IdUbicacion" />
+          </Key>
+          <Property Name="IdUbicacion" Type="int" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_User">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="15" />
+          <Property Name="Password" Type="nchar" MaxLength="15" />
+          <Property Name="IDProfile" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Table_Vencimiento">
+          <Key>
+            <PropertyRef Name="IdVencimiento" />
+          </Key>
+          <Property Name="IdVencimiento" Type="int" Nullable="false" />
+          <Property Name="Vencimiento" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Table_Zonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="int" Nullable="false" />
+          <Property Name="Zonas" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_Almacenes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Almacenes">
+          <Key>
+            <PropertyRef Name="IdAlmacen" />
+          </Key>
+          <Property Name="IdAlmacen" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Codigo" Type="nchar" MaxLength="10" />
+          <Property Name="FechaAlta" Type="datetime" />
+          <Property Name="NombreEncargado" Type="varchar" MaxLength="151" />
+          <Property Name="Zonas" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_DetalleArticulo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_DetalleArticulo">
+          <Key>
+            <PropertyRef Name="IDArticulo" />
+          </Key>
+          <Property Name="IDArticulo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Categoria" Type="varchar" MaxLength="50" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_DetalleArticuloComprobante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_DetalleArticuloComprobante">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="idTable_DetallesComprobanteArticulos" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="IdComprobante" Type="int" Nullable="false" />
+          <Property Name="idTable_DetallesComprobanteArticulos" Type="int" Nullable="false" />
+          <Property Name="Iva" Type="float" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_DETALLEFACTURA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_DETALLEFACTURA">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="int" Nullable="false" />
+          <Property Name="TipoComprobante" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="TipoFactura" Type="varchar" MaxLength="50" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="4" />
+          <Property Name="NoFactura" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_ListaEmpleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_ListaEmpleados">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="151" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_OrdenPago' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_OrdenPago">
+          <Key>
+            <PropertyRef Name="Idpago" />
+          </Key>
+          <Property Name="Idpago" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="MediosPago" Type="varchar" MaxLength="50" />
+          <Property Name="Nocheque" Type="nchar" MaxLength="15" />
+          <Property Name="Banco" Type="varchar" MaxLength="50" />
+          <Property Name="Importe" Type="float" />
+          <Property Name="Concepto" Type="varchar" MaxLength="50" />
+          <Property Name="FechaFactura" Type="date" />
+          <Property Name="TipoFactura" Type="varchar" MaxLength="50" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="4" />
+          <Property Name="NoFactura" Type="varchar" MaxLength="8" />
+          <Property Name="ImporteFactura" Type="float" />
+          <Property Name="RazonProveedor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'dbsitemfacturacion.dbo.View_Proveedores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Proveedores">
+          <Key>
+            <PropertyRef Name="Cuit" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Razon" Type="varchar" MaxLength="50" />
+          <Property Name="Cuit" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="IngresosBrutos" Type="nchar" MaxLength="15" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nchar" MaxLength="10" />
+          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="Localidades" Type="varchar" MaxLength="50" />
+          <Property Name="Provincias" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Table_Almacen_Table_Empleado">
+          <End Role="Table_Empleado" Type="Self.Table_Empleado" Multiplicity="0..1" />
+          <End Role="Table_Almacen" Type="Self.Table_Almacen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_Almacen">
+              <PropertyRef Name="IdEncargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Almacen_Table_Zonas">
+          <End Role="Table_Zonas" Type="Self.Table_Zonas" Multiplicity="0..1" />
+          <End Role="Table_Almacen" Type="Self.Table_Almacen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Zonas">
+              <PropertyRef Name="IdZona" />
+            </Principal>
+            <Dependent Role="Table_Almacen">
+              <PropertyRef Name="IDZona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Articulos_Table_Categoria">
+          <End Role="Table_Categoria" Type="Self.Table_Categoria" Multiplicity="1" />
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Table_Articulos">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Articulos_Table_Ubicacion">
+          <End Role="Table_Ubicacion" Type="Self.Table_Ubicacion" Multiplicity="0..1" />
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Ubicacion">
+              <PropertyRef Name="IdUbicacion" />
+            </Principal>
+            <Dependent Role="Table_Articulos">
+              <PropertyRef Name="IdUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_CentroCosto">
+          <End Role="Table_CentroCosto" Type="Self.Table_CentroCosto" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_CentroCosto">
+              <PropertyRef Name="IdCentroCosto" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdCentroCosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_CondicionCompra">
+          <End Role="Table_CondicionCompra" Type="Self.Table_CondicionCompra" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_CondicionCompra">
+              <PropertyRef Name="IdCondicionCompra" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdCondicionCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Contable">
+          <End Role="Table_Contable" Type="Self.Table_Contable" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Contable">
+              <PropertyRef Name="IdContable" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="Contable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Estados">
+          <End Role="Table_Estados" Type="Self.Table_Estados" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Estados">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Proveedores">
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Proveedores">
+              <PropertyRef Name="IdProveedores" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_TipoComprobante">
+          <End Role="Table_TipoComprobante" Type="Self.Table_TipoComprobante" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_TipoComprobante">
+              <PropertyRef Name="IdTipoComprobante" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdTipoComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_TipoFactura">
+          <End Role="Table_TipoFactura" Type="Self.Table_TipoFactura" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_TipoFactura">
+              <PropertyRef Name="IdTipoFactura" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdTipoFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_Banco">
+          <End Role="Table_Banco" Type="Self.Table_Banco" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Banco">
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_MedioPago">
+          <End Role="Table_MedioPago" Type="Self.Table_MedioPago" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_MedioPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_Pagos">
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Pagos">
+              <PropertyRef Name="Idpago" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallePago_Table_Comprobante">
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="0..1" />
+          <End Role="Table_DetallePago" Type="Self.Table_DetallePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Comprobante">
+              <PropertyRef Name="IdComprobante" />
+            </Principal>
+            <Dependent Role="Table_DetallePago">
+              <PropertyRef Name="idComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallePago_Table_Pagos">
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="0..1" />
+          <End Role="Table_DetallePago" Type="Self.Table_DetallePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Pagos">
+              <PropertyRef Name="Idpago" />
+            </Principal>
+            <Dependent Role="Table_DetallePago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallesComprobanteArticulos_Table_Articulos">
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="0..1" />
+          <End Role="Table_DetallesComprobanteArticulos" Type="Self.Table_DetallesComprobanteArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Articulos">
+              <PropertyRef Name="IDArticulo" />
+            </Principal>
+            <Dependent Role="Table_DetallesComprobanteArticulos">
+              <PropertyRef Name="IdArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallesComprobanteArticulos_Table_Comprobante">
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="0..1" />
+          <End Role="Table_DetallesComprobanteArticulos" Type="Self.Table_DetallesComprobanteArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Comprobante">
+              <PropertyRef Name="IdComprobante" />
+            </Principal>
+            <Dependent Role="Table_DetallesComprobanteArticulos">
+              <PropertyRef Name="IdComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Empleado_Table_Empleado">
+          <End Role="Table_Empleado" Type="Self.Table_Empleado" Multiplicity="1" />
+          <End Role="Table_Empleado1" Type="Self.Table_Empleado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_Empleado1">
+              <PropertyRef Name="IDEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IngresoMateriales_Table_Almacen">
+          <End Role="Table_Almacen" Type="Self.Table_Almacen" Multiplicity="0..1" />
+          <End Role="Table_IngresoMateriales" Type="Self.Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Almacen">
+              <PropertyRef Name="IdAlmacen" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="IdAlmacen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IngresoMateriales_Table_Articulos">
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="0..1" />
+          <End Role="Table_IngresoMateriales" Type="Self.Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Articulos">
+              <PropertyRef Name="IDArticulo" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="idArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IngresoMateriales_Table_Empleado">
+          <End Role="Table_Empleado" Type="Self.Table_Empleado" Multiplicity="0..1" />
+          <End Role="Table_IngresoMateriales" Type="Self.Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="IdRecepcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Pagos_Table_Banco">
+          <End Role="Table_Banco" Type="Self.Table_Banco" Multiplicity="0..1" />
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Banco">
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="Table_Pagos">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Pagos_Table_MedioPago">
+          <End Role="Table_MedioPago" Type="Self.Table_MedioPago" Multiplicity="0..1" />
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_MedioPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Principal>
+            <Dependent Role="Table_Pagos">
+              <PropertyRef Name="idMedioPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Proveedores_Table_Localidades">
+          <End Role="Table_Localidades" Type="Self.Table_Localidades" Multiplicity="1" />
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Localidades">
+              <PropertyRef Name="IdLocalidad" />
+            </Principal>
+            <Dependent Role="Table_Proveedores">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Proveedores_Table_Provincias">
+          <End Role="Table_Provincias" Type="Self.Table_Provincias" Multiplicity="1" />
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Provincias">
+              <PropertyRef Name="IDProvincias" />
+            </Principal>
+            <Dependent Role="Table_Proveedores">
+              <PropertyRef Name="IDProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EncabezadoDeuda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idproveedor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EncabezadoOrdenPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdPago" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FacturasPendientesPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idproveedor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FACTURASXPROVEEDORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FECHAINICIO" Type="datetime" Mode="In" />
+          <Parameter Name="FECHAFIN" Type="datetime" Mode="In" />
+          <Parameter Name="IDPROVEEDOR" Type="int" Mode="In" />
+        </Function>
+        <Function Name="OrdenPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idpago" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SeleccionarMediosDePagos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPago" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="dbsitemfacturacionModelStoreContainer">
+          <EntitySet Name="Table_Almacen" EntityType="Self.Table_Almacen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Articulos" EntityType="Self.Table_Articulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Banco" EntityType="Self.Table_Banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Categoria" EntityType="Self.Table_Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_CentroCosto" EntityType="Self.Table_CentroCosto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Comprobante" EntityType="Self.Table_Comprobante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_CondicionCompra" EntityType="Self.Table_CondicionCompra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Contable" EntityType="Self.Table_Contable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_CuentaCorriente" EntityType="Self.Table_CuentaCorriente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DetalleMediosPago" EntityType="Self.Table_DetalleMediosPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DetallePago" EntityType="Self.Table_DetallePago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_DetallesComprobanteArticulos" EntityType="Self.Table_DetallesComprobanteArticulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Empleado" EntityType="Self.Table_Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Empresa" EntityType="Self.Table_Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Estados" EntityType="Self.Table_Estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_IngresoMateriales" EntityType="Self.Table_IngresoMateriales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Localidades" EntityType="Self.Table_Localidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_MedioPago" EntityType="Self.Table_MedioPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Pagos" EntityType="Self.Table_Pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Profiles" EntityType="Self.Table_Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Proveedores" EntityType="Self.Table_Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Provincias" EntityType="Self.Table_Provincias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_TipoComprobante" EntityType="Self.Table_TipoComprobante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_TipoFactura" EntityType="Self.Table_TipoFactura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Ubicacion" EntityType="Self.Table_Ubicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_User" EntityType="Self.Table_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Vencimiento" EntityType="Self.Table_Vencimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Zonas" EntityType="Self.Table_Zonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Almacenes" EntityType="Self.View_Almacenes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Almacenes].[IdAlmacen] AS [IdAlmacen], 
+    [View_Almacenes].[Nombre] AS [Nombre], 
+    [View_Almacenes].[Codigo] AS [Codigo], 
+    [View_Almacenes].[FechaAlta] AS [FechaAlta], 
+    [View_Almacenes].[NombreEncargado] AS [NombreEncargado], 
+    [View_Almacenes].[Zonas] AS [Zonas]
+    FROM [dbo].[View_Almacenes] AS [View_Almacenes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_DetalleArticulo" EntityType="Self.View_DetalleArticulo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_DetalleArticulo].[IDArticulo] AS [IDArticulo], 
+    [View_DetalleArticulo].[Nombre] AS [Nombre], 
+    [View_DetalleArticulo].[Descripcion] AS [Descripcion], 
+    [View_DetalleArticulo].[Codigo] AS [Codigo], 
+    [View_DetalleArticulo].[Iva] AS [Iva], 
+    [View_DetalleArticulo].[Categoria] AS [Categoria], 
+    [View_DetalleArticulo].[Ubicacion] AS [Ubicacion]
+    FROM [dbo].[View_DetalleArticulo] AS [View_DetalleArticulo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_DetalleArticuloComprobante" EntityType="Self.View_DetalleArticuloComprobante" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_DetalleArticuloComprobante].[Nombre] AS [Nombre], 
+    [View_DetalleArticuloComprobante].[Cantidad] AS [Cantidad], 
+    [View_DetalleArticuloComprobante].[Precio] AS [Precio], 
+    [View_DetalleArticuloComprobante].[Importe] AS [Importe], 
+    [View_DetalleArticuloComprobante].[Fecha] AS [Fecha], 
+    [View_DetalleArticuloComprobante].[IdComprobante] AS [IdComprobante], 
+    [View_DetalleArticuloComprobante].[idTable_DetallesComprobanteArticulos] AS [idTable_DetallesComprobanteArticulos], 
+    [View_DetalleArticuloComprobante].[Iva] AS [Iva]
+    FROM [dbo].[View_DetalleArticuloComprobante] AS [View_DetalleArticuloComprobante]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_DETALLEFACTURA" EntityType="Self.View_DETALLEFACTURA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_DETALLEFACTURA].[IdComprobante] AS [IdComprobante], 
+    [View_DETALLEFACTURA].[TipoComprobante] AS [TipoComprobante], 
+    [View_DETALLEFACTURA].[Fecha] AS [Fecha], 
+    [View_DETALLEFACTURA].[TipoFactura] AS [TipoFactura], 
+    [View_DETALLEFACTURA].[Sucursal] AS [Sucursal], 
+    [View_DETALLEFACTURA].[NoFactura] AS [NoFactura]
+    FROM [dbo].[View_DETALLEFACTURA] AS [View_DETALLEFACTURA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_ListaEmpleados" EntityType="Self.View_ListaEmpleados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_ListaEmpleados].[IDEmpleado] AS [IDEmpleado], 
+    [View_ListaEmpleados].[Nombres] AS [Nombres]
+    FROM [dbo].[View_ListaEmpleados] AS [View_ListaEmpleados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_OrdenPago" EntityType="Self.View_OrdenPago" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_OrdenPago].[Idpago] AS [Idpago], 
+    [View_OrdenPago].[Fecha] AS [Fecha], 
+    [View_OrdenPago].[MediosPago] AS [MediosPago], 
+    [View_OrdenPago].[Nocheque] AS [Nocheque], 
+    [View_OrdenPago].[Banco] AS [Banco], 
+    [View_OrdenPago].[Importe] AS [Importe], 
+    [View_OrdenPago].[Concepto] AS [Concepto], 
+    [View_OrdenPago].[FechaFactura] AS [FechaFactura], 
+    [View_OrdenPago].[TipoFactura] AS [TipoFactura], 
+    [View_OrdenPago].[Sucursal] AS [Sucursal], 
+    [View_OrdenPago].[NoFactura] AS [NoFactura], 
+    [View_OrdenPago].[ImporteFactura] AS [ImporteFactura], 
+    [View_OrdenPago].[RazonProveedor] AS [RazonProveedor]
+    FROM [dbo].[View_OrdenPago] AS [View_OrdenPago]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Proveedores" EntityType="Self.View_Proveedores" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Proveedores].[Nombre] AS [Nombre], 
+    [View_Proveedores].[Razon] AS [Razon], 
+    [View_Proveedores].[Cuit] AS [Cuit], 
+    [View_Proveedores].[IngresosBrutos] AS [IngresosBrutos], 
+    [View_Proveedores].[Direccion] AS [Direccion], 
+    [View_Proveedores].[Telefono] AS [Telefono], 
+    [View_Proveedores].[FechaIngreso] AS [FechaIngreso], 
+    [View_Proveedores].[Localidades] AS [Localidades], 
+    [View_Proveedores].[Provincias] AS [Provincias]
+    FROM [dbo].[View_Proveedores] AS [View_Proveedores]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Table_Almacen_Table_Empleado" Association="Self.FK_Table_Almacen_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Almacen_Table_Zonas" Association="Self.FK_Table_Almacen_Table_Zonas">
+            <End Role="Table_Zonas" EntitySet="Table_Zonas" />
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Articulos_Table_Categoria" Association="Self.FK_Table_Articulos_Table_Categoria">
+            <End Role="Table_Categoria" EntitySet="Table_Categoria" />
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Articulos_Table_Ubicacion" Association="Self.FK_Table_Articulos_Table_Ubicacion">
+            <End Role="Table_Ubicacion" EntitySet="Table_Ubicacion" />
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_CentroCosto" Association="Self.FK_Table_Comprobante_Table_CentroCosto">
+            <End Role="Table_CentroCosto" EntitySet="Table_CentroCosto" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_CondicionCompra" Association="Self.FK_Table_Comprobante_Table_CondicionCompra">
+            <End Role="Table_CondicionCompra" EntitySet="Table_CondicionCompra" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Contable" Association="Self.FK_Table_Comprobante_Table_Contable">
+            <End Role="Table_Contable" EntitySet="Table_Contable" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Estados" Association="Self.FK_Table_Comprobante_Table_Estados">
+            <End Role="Table_Estados" EntitySet="Table_Estados" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Proveedores" Association="Self.FK_Table_Comprobante_Table_Proveedores">
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_TipoComprobante" Association="Self.FK_Table_Comprobante_Table_TipoComprobante">
+            <End Role="Table_TipoComprobante" EntitySet="Table_TipoComprobante" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_TipoFactura" Association="Self.FK_Table_Comprobante_Table_TipoFactura">
+            <End Role="Table_TipoFactura" EntitySet="Table_TipoFactura" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_Banco" Association="Self.FK_Table_DetalleMediosPago_Table_Banco">
+            <End Role="Table_Banco" EntitySet="Table_Banco" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_MedioPago" Association="Self.FK_Table_DetalleMediosPago_Table_MedioPago">
+            <End Role="Table_MedioPago" EntitySet="Table_MedioPago" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_Pagos" Association="Self.FK_Table_DetalleMediosPago_Table_Pagos">
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallePago_Table_Comprobante" Association="Self.FK_Table_DetallePago_Table_Comprobante">
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+            <End Role="Table_DetallePago" EntitySet="Table_DetallePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallePago_Table_Pagos" Association="Self.FK_Table_DetallePago_Table_Pagos">
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+            <End Role="Table_DetallePago" EntitySet="Table_DetallePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallesComprobanteArticulos_Table_Articulos" Association="Self.FK_Table_DetallesComprobanteArticulos_Table_Articulos">
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+            <End Role="Table_DetallesComprobanteArticulos" EntitySet="Table_DetallesComprobanteArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallesComprobanteArticulos_Table_Comprobante" Association="Self.FK_Table_DetallesComprobanteArticulos_Table_Comprobante">
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+            <End Role="Table_DetallesComprobanteArticulos" EntitySet="Table_DetallesComprobanteArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Empleado_Table_Empleado" Association="Self.FK_Table_Empleado_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_Empleado1" EntitySet="Table_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Almacen" Association="Self.FK_Table_IngresoMateriales_Table_Almacen">
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Articulos" Association="Self.FK_Table_IngresoMateriales_Table_Articulos">
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Empleado" Association="Self.FK_Table_IngresoMateriales_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Pagos_Table_Banco" Association="Self.FK_Table_Pagos_Table_Banco">
+            <End Role="Table_Banco" EntitySet="Table_Banco" />
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Pagos_Table_MedioPago" Association="Self.FK_Table_Pagos_Table_MedioPago">
+            <End Role="Table_MedioPago" EntitySet="Table_MedioPago" />
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Proveedores_Table_Localidades" Association="Self.FK_Table_Proveedores_Table_Localidades">
+            <End Role="Table_Localidades" EntitySet="Table_Localidades" />
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Proveedores_Table_Provincias" Association="Self.FK_Table_Proveedores_Table_Provincias">
+            <End Role="Table_Provincias" EntitySet="Table_Provincias" />
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbsitemfacturacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Table_Almacen">
+          <Key>
+            <PropertyRef Name="IdAlmacen" />
+          </Key>
+          <Property Name="IdAlmacen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdEncargado" Type="Int32" />
+          <Property Name="IDZona" Type="Int32" />
+          <NavigationProperty Name="Table_Empleado" Relationship="Self.FK_Table_Almacen_Table_Empleado" FromRole="Table_Almacen" ToRole="Table_Empleado" />
+          <NavigationProperty Name="Table_Zonas" Relationship="Self.FK_Table_Almacen_Table_Zonas" FromRole="Table_Almacen" ToRole="Table_Zonas" />
+          <NavigationProperty Name="Table_IngresoMateriales" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Almacen" FromRole="Table_Almacen" ToRole="Table_IngresoMateriales" />
+        </EntityType>
+        <EntityType Name="Table_Articulos">
+          <Key>
+            <PropertyRef Name="IDArticulo" />
+          </Key>
+          <Property Name="IDArticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" />
+          <Property Name="IdAlmacen" Type="Int32" />
+          <Property Name="IdUbicacion" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stock" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <NavigationProperty Name="Table_Categoria" Relationship="Self.FK_Table_Articulos_Table_Categoria" FromRole="Table_Articulos" ToRole="Table_Categoria" />
+          <NavigationProperty Name="Table_Ubicacion" Relationship="Self.FK_Table_Articulos_Table_Ubicacion" FromRole="Table_Articulos" ToRole="Table_Ubicacion" />
+          <NavigationProperty Name="Table_IngresoMateriales" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Articulos" FromRole="Table_Articulos" ToRole="Table_IngresoMateriales" />
+          <NavigationProperty Name="Table_DetallesComprobanteArticulos" Relationship="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Articulos" FromRole="Table_Articulos" ToRole="Table_DetallesComprobanteArticulos" />
+        </EntityType>
+        <EntityType Name="Table_Banco">
+          <Key>
+            <PropertyRef Name="IdBanco" />
+          </Key>
+          <Property Name="IdBanco" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CBU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_DetalleMediosPago" Relationship="Self.FK_Table_DetalleMediosPago_Table_Banco" FromRole="Table_Banco" ToRole="Table_DetalleMediosPago" />
+          <NavigationProperty Name="Table_Pagos" Relationship="Self.FK_Table_Pagos_Table_Banco" FromRole="Table_Banco" ToRole="Table_Pagos" />
+        </EntityType>
+        <EntityType Name="Table_Categoria">
+          <Key>
+            <PropertyRef Name="IDCategoria" />
+          </Key>
+          <Property Name="IDCategoria" Type="Int32" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Articulos" Relationship="Self.FK_Table_Articulos_Table_Categoria" FromRole="Table_Categoria" ToRole="Table_Articulos" />
+        </EntityType>
+        <EntityType Name="Table_CentroCosto">
+          <Key>
+            <PropertyRef Name="IdCentroCosto" />
+          </Key>
+          <Property Name="IdCentroCosto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CentroCosto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_CentroCosto" FromRole="Table_CentroCosto" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_Comprobante">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sucursal" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NoFactura" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="IdTipoComprobante" Type="Int32" />
+          <Property Name="IdCentroCosto" Type="Int32" />
+          <Property Name="IdTipoFactura" Type="Int32" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Contable" Type="Int32" />
+          <Property Name="IdProveedor" Type="Int32" />
+          <Property Name="IdCondicionCompra" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IIBB" Type="Double" />
+          <Property Name="Retenciones" Type="Double" />
+          <Property Name="ConceptosNograbado" Type="Double" />
+          <NavigationProperty Name="Table_CentroCosto" Relationship="Self.FK_Table_Comprobante_Table_CentroCosto" FromRole="Table_Comprobante" ToRole="Table_CentroCosto" />
+          <NavigationProperty Name="Table_CondicionCompra" Relationship="Self.FK_Table_Comprobante_Table_CondicionCompra" FromRole="Table_Comprobante" ToRole="Table_CondicionCompra" />
+          <NavigationProperty Name="Table_Contable" Relationship="Self.FK_Table_Comprobante_Table_Contable" FromRole="Table_Comprobante" ToRole="Table_Contable" />
+          <NavigationProperty Name="Table_Estados" Relationship="Self.FK_Table_Comprobante_Table_Estados" FromRole="Table_Comprobante" ToRole="Table_Estados" />
+          <NavigationProperty Name="Table_Proveedores" Relationship="Self.FK_Table_Comprobante_Table_Proveedores" FromRole="Table_Comprobante" ToRole="Table_Proveedores" />
+          <NavigationProperty Name="Table_TipoComprobante" Relationship="Self.FK_Table_Comprobante_Table_TipoComprobante" FromRole="Table_Comprobante" ToRole="Table_TipoComprobante" />
+          <NavigationProperty Name="Table_TipoFactura" Relationship="Self.FK_Table_Comprobante_Table_TipoFactura" FromRole="Table_Comprobante" ToRole="Table_TipoFactura" />
+          <NavigationProperty Name="Table_DetallePago" Relationship="Self.FK_Table_DetallePago_Table_Comprobante" FromRole="Table_Comprobante" ToRole="Table_DetallePago" />
+          <NavigationProperty Name="Table_DetallesComprobanteArticulos" Relationship="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Comprobante" FromRole="Table_Comprobante" ToRole="Table_DetallesComprobanteArticulos" />
+        </EntityType>
+        <EntityType Name="Table_CondicionCompra">
+          <Key>
+            <PropertyRef Name="IdCondicionCompra" />
+          </Key>
+          <Property Name="IdCondicionCompra" Type="Int32" Nullable="false" />
+          <Property Name="Condiciondecompra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_CondicionCompra" FromRole="Table_CondicionCompra" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_Contable">
+          <Key>
+            <PropertyRef Name="IdContable" />
+          </Key>
+          <Property Name="IdContable" Type="Int32" Nullable="false" />
+          <Property Name="Contable" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_Contable" FromRole="Table_Contable" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_CuentaCorriente">
+          <Key>
+            <PropertyRef Name="IdCuentaCorriente" />
+          </Key>
+          <Property Name="IdCuentaCorriente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDProveedor" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Vencimiento" Type="Int32" />
+          <Property Name="Comentario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_DetalleMediosPago">
+          <Key>
+            <PropertyRef Name="IdDetalleMedioPago" />
+          </Key>
+          <Property Name="IdDetalleMedioPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMedioPago" Type="Int32" />
+          <Property Name="NoCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdBanco" Type="Int32" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="IdPago" Type="Int32" />
+          <NavigationProperty Name="Table_Banco" Relationship="Self.FK_Table_DetalleMediosPago_Table_Banco" FromRole="Table_DetalleMediosPago" ToRole="Table_Banco" />
+          <NavigationProperty Name="Table_MedioPago" Relationship="Self.FK_Table_DetalleMediosPago_Table_MedioPago" FromRole="Table_DetalleMediosPago" ToRole="Table_MedioPago" />
+          <NavigationProperty Name="Table_Pagos" Relationship="Self.FK_Table_DetalleMediosPago_Table_Pagos" FromRole="Table_DetalleMediosPago" ToRole="Table_Pagos" />
+        </EntityType>
+        <EntityType Name="Table_DetallePago">
+          <Key>
+            <PropertyRef Name="IdDetallePago" />
+          </Key>
+          <Property Name="IdDetallePago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idComprobante" Type="Int32" />
+          <Property Name="IdPago" Type="Int32" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_DetallePago_Table_Comprobante" FromRole="Table_DetallePago" ToRole="Table_Comprobante" />
+          <NavigationProperty Name="Table_Pagos" Relationship="Self.FK_Table_DetallePago_Table_Pagos" FromRole="Table_DetallePago" ToRole="Table_Pagos" />
+        </EntityType>
+        <EntityType Name="Table_Empleado">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cuit" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="cuil" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Table_Almacen" Relationship="Self.FK_Table_Almacen_Table_Empleado" FromRole="Table_Empleado" ToRole="Table_Almacen" />
+          <NavigationProperty Name="Table_Empleado1" Relationship="Self.FK_Table_Empleado_Table_Empleado" FromRole="Table_Empleado" ToRole="Table_Empleado1" />
+          <NavigationProperty Name="Table_Empleado2" Relationship="Self.FK_Table_Empleado_Table_Empleado" FromRole="Table_Empleado1" ToRole="Table_Empleado" />
+          <NavigationProperty Name="Table_IngresoMateriales" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Empleado" FromRole="Table_Empleado" ToRole="Table_IngresoMateriales" />
+        </EntityType>
+        <EntityType Name="Table_Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Razon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUIT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idProvincia" Type="Int32" />
+          <Property Name="IdLocalidad" Type="Int32" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Table_Estados">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="Int32" Nullable="false" />
+          <Property Name="Estados" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_Estados" FromRole="Table_Estados" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_Localidades">
+          <Key>
+            <PropertyRef Name="IdLocalidad" />
+          </Key>
+          <Property Name="IdLocalidad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Localidades" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Table_Proveedores" Relationship="Self.FK_Table_Proveedores_Table_Localidades" FromRole="Table_Localidades" ToRole="Table_Proveedores" />
+        </EntityType>
+        <EntityType Name="Table_MedioPago">
+          <Key>
+            <PropertyRef Name="IdMedioPago" />
+          </Key>
+          <Property Name="IdMedioPago" Type="Int32" Nullable="false" />
+          <Property Name="MediosPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_DetalleMediosPago" Relationship="Self.FK_Table_DetalleMediosPago_Table_MedioPago" FromRole="Table_MedioPago" ToRole="Table_DetalleMediosPago" />
+          <NavigationProperty Name="Table_Pagos" Relationship="Self.FK_Table_Pagos_Table_MedioPago" FromRole="Table_MedioPago" ToRole="Table_Pagos" />
+        </EntityType>
+        <EntityType Name="Table_Pagos">
+          <Key>
+            <PropertyRef Name="Idpago" />
+          </Key>
+          <Property Name="Idpago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="idMedioPago" Type="Int32" />
+          <Property Name="idCuentaCorriente" Type="Int32" />
+          <Property Name="Nocheque" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="IdBanco" Type="Int32" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Banco" Relationship="Self.FK_Table_Pagos_Table_Banco" FromRole="Table_Pagos" ToRole="Table_Banco" />
+          <NavigationProperty Name="Table_DetalleMediosPago" Relationship="Self.FK_Table_DetalleMediosPago_Table_Pagos" FromRole="Table_Pagos" ToRole="Table_DetalleMediosPago" />
+          <NavigationProperty Name="Table_DetallePago" Relationship="Self.FK_Table_DetallePago_Table_Pagos" FromRole="Table_Pagos" ToRole="Table_DetallePago" />
+          <NavigationProperty Name="Table_MedioPago" Relationship="Self.FK_Table_Pagos_Table_MedioPago" FromRole="Table_Pagos" ToRole="Table_MedioPago" />
+        </EntityType>
+        <EntityType Name="Table_Profiles">
+          <Key>
+            <PropertyRef Name="Id_Profiles" />
+          </Key>
+          <Property Name="Id_Profiles" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Profiles" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Table_Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedores" />
+          </Key>
+          <Property Name="IdProveedores" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Razon" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Cuit" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IngresosBrutos" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDProvincia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDLocalidad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_Proveedores" FromRole="Table_Proveedores" ToRole="Table_Comprobante" />
+          <NavigationProperty Name="Table_Localidades" Relationship="Self.FK_Table_Proveedores_Table_Localidades" FromRole="Table_Proveedores" ToRole="Table_Localidades" />
+          <NavigationProperty Name="Table_Provincias" Relationship="Self.FK_Table_Proveedores_Table_Provincias" FromRole="Table_Proveedores" ToRole="Table_Provincias" />
+        </EntityType>
+        <EntityType Name="Table_Provincias">
+          <Key>
+            <PropertyRef Name="IDProvincias" />
+          </Key>
+          <Property Name="IDProvincias" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Provincias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Proveedores" Relationship="Self.FK_Table_Proveedores_Table_Provincias" FromRole="Table_Provincias" ToRole="Table_Proveedores" />
+        </EntityType>
+        <EntityType Name="Table_TipoComprobante">
+          <Key>
+            <PropertyRef Name="IdTipoComprobante" />
+          </Key>
+          <Property Name="IdTipoComprobante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoComprobante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_TipoComprobante" FromRole="Table_TipoComprobante" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_TipoFactura">
+          <Key>
+            <PropertyRef Name="IdTipoFactura" />
+          </Key>
+          <Property Name="IdTipoFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="Self.FK_Table_Comprobante_Table_TipoFactura" FromRole="Table_TipoFactura" ToRole="Table_Comprobante" />
+        </EntityType>
+        <EntityType Name="Table_Ubicacion">
+          <Key>
+            <PropertyRef Name="IdUbicacion" />
+          </Key>
+          <Property Name="IdUbicacion" Type="Int32" Nullable="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Articulos" Relationship="Self.FK_Table_Articulos_Table_Ubicacion" FromRole="Table_Ubicacion" ToRole="Table_Articulos" />
+        </EntityType>
+        <EntityType Name="Table_User">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="IDProfile" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Table_Vencimiento">
+          <Key>
+            <PropertyRef Name="IdVencimiento" />
+          </Key>
+          <Property Name="IdVencimiento" Type="Int32" Nullable="false" />
+          <Property Name="Vencimiento" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Table_Zonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="Int32" Nullable="false" />
+          <Property Name="Zonas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_Almacen" Relationship="Self.FK_Table_Almacen_Table_Zonas" FromRole="Table_Zonas" ToRole="Table_Almacen" />
+        </EntityType>
+        <EntityType Name="View_Almacenes">
+          <Key>
+            <PropertyRef Name="IdAlmacen" />
+          </Key>
+          <Property Name="IdAlmacen" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+          <Property Name="NombreEncargado" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+          <Property Name="Zonas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_DetalleArticulo">
+          <Key>
+            <PropertyRef Name="IDArticulo" />
+          </Key>
+          <Property Name="IDArticulo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_DetalleArticuloComprobante">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="idTable_DetallesComprobanteArticulos" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="IdComprobante" Type="Int32" Nullable="false" />
+          <Property Name="idTable_DetallesComprobanteArticulos" Type="Int32" Nullable="false" />
+          <Property Name="Iva" Type="Double" />
+        </EntityType>
+        <EntityType Name="View_DETALLEFACTURA">
+          <Key>
+            <PropertyRef Name="IdComprobante" />
+          </Key>
+          <Property Name="IdComprobante" Type="Int32" Nullable="false" />
+          <Property Name="TipoComprobante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="TipoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sucursal" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NoFactura" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_ListaEmpleados">
+          <Key>
+            <PropertyRef Name="IDEmpleado" />
+          </Key>
+          <Property Name="IDEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_OrdenPago">
+          <Key>
+            <PropertyRef Name="Idpago" />
+          </Key>
+          <Property Name="Idpago" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="MediosPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nocheque" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="Concepto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaFactura" Type="DateTime" Precision="0" />
+          <Property Name="TipoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sucursal" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NoFactura" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ImporteFactura" Type="Double" />
+          <Property Name="RazonProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Proveedores">
+          <Key>
+            <PropertyRef Name="Cuit" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Razon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cuit" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IngresosBrutos" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="Localidades" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Provincias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Table_Almacen_Table_Empleado">
+          <End Role="Table_Empleado" Type="Self.Table_Empleado" Multiplicity="0..1" />
+          <End Role="Table_Almacen" Type="Self.Table_Almacen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_Almacen">
+              <PropertyRef Name="IdEncargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Almacen_Table_Zonas">
+          <End Role="Table_Zonas" Type="Self.Table_Zonas" Multiplicity="0..1" />
+          <End Role="Table_Almacen" Type="Self.Table_Almacen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Zonas">
+              <PropertyRef Name="IdZona" />
+            </Principal>
+            <Dependent Role="Table_Almacen">
+              <PropertyRef Name="IDZona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Articulos_Table_Categoria">
+          <End Role="Table_Categoria" Type="Self.Table_Categoria" Multiplicity="1" />
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Categoria">
+              <PropertyRef Name="IDCategoria" />
+            </Principal>
+            <Dependent Role="Table_Articulos">
+              <PropertyRef Name="IDCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Articulos_Table_Ubicacion">
+          <End Role="Table_Ubicacion" Type="Self.Table_Ubicacion" Multiplicity="0..1" />
+          <End Role="Table_Articulos" Type="Self.Table_Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Ubicacion">
+              <PropertyRef Name="IdUbicacion" />
+            </Principal>
+            <Dependent Role="Table_Articulos">
+              <PropertyRef Name="IdUbicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_Banco">
+          <End Role="Table_Banco" Type="Self.Table_Banco" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Banco">
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Pagos_Table_Banco">
+          <End Role="Table_Banco" Type="Self.Table_Banco" Multiplicity="0..1" />
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Banco">
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="Table_Pagos">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_CentroCosto">
+          <End Role="Table_CentroCosto" Type="Self.Table_CentroCosto" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_CentroCosto">
+              <PropertyRef Name="IdCentroCosto" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdCentroCosto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_CondicionCompra">
+          <End Role="Table_CondicionCompra" Type="Self.Table_CondicionCompra" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_CondicionCompra">
+              <PropertyRef Name="IdCondicionCompra" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdCondicionCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Contable">
+          <End Role="Table_Contable" Type="Self.Table_Contable" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Contable">
+              <PropertyRef Name="IdContable" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="Contable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Estados">
+          <End Role="Table_Estados" Type="Self.Table_Estados" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Estados">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_Proveedores">
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Proveedores">
+              <PropertyRef Name="IdProveedores" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_TipoComprobante">
+          <End Role="Table_TipoComprobante" Type="Self.Table_TipoComprobante" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_TipoComprobante">
+              <PropertyRef Name="IdTipoComprobante" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdTipoComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Comprobante_Table_TipoFactura">
+          <End Role="Table_TipoFactura" Type="Self.Table_TipoFactura" Multiplicity="0..1" />
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_TipoFactura">
+              <PropertyRef Name="IdTipoFactura" />
+            </Principal>
+            <Dependent Role="Table_Comprobante">
+              <PropertyRef Name="IdTipoFactura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallePago_Table_Comprobante">
+          <End Role="Table_Comprobante" Type="Self.Table_Comprobante" Multiplicity="0..1" />
+          <End Role="Table_DetallePago" Type="Self.Table_DetallePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Comprobante">
+              <PropertyRef Name="IdComprobante" />
+            </Principal>
+            <Dependent Role="Table_DetallePago">
+              <PropertyRef Name="idComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_MedioPago">
+          <End Role="Table_MedioPago" Type="Self.Table_MedioPago" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_MedioPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetalleMediosPago_Table_Pagos">
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="0..1" />
+          <End Role="Table_DetalleMediosPago" Type="Self.Table_DetalleMediosPago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Pagos">
+              <PropertyRef Name="Idpago" />
+            </Principal>
+            <Dependent Role="Table_DetalleMediosPago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallePago_Table_Pagos">
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="0..1" />
+          <End Role="Table_DetallePago" Type="Self.Table_DetallePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Pagos">
+              <PropertyRef Name="Idpago" />
+            </Principal>
+            <Dependent Role="Table_DetallePago">
+              <PropertyRef Name="IdPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Empleado_Table_Empleado">
+          <End Role="Table_Empleado" Type="Self.Table_Empleado" Multiplicity="1" />
+          <End Role="Table_Empleado1" Type="Self.Table_Empleado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_Empleado1">
+              <PropertyRef Name="IDEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Proveedores_Table_Localidades">
+          <End Role="Table_Localidades" Type="Self.Table_Localidades" Multiplicity="1" />
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Localidades">
+              <PropertyRef Name="IdLocalidad" />
+            </Principal>
+            <Dependent Role="Table_Proveedores">
+              <PropertyRef Name="IDLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Pagos_Table_MedioPago">
+          <End Role="Table_MedioPago" Type="Self.Table_MedioPago" Multiplicity="0..1" />
+          <End Role="Table_Pagos" Type="Self.Table_Pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_MedioPago">
+              <PropertyRef Name="IdMedioPago" />
+            </Principal>
+            <Dependent Role="Table_Pagos">
+              <PropertyRef Name="idMedioPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Proveedores_Table_Provincias">
+          <End Role="Table_Provincias" Type="Self.Table_Provincias" Multiplicity="1" />
+          <End Role="Table_Proveedores" Type="Self.Table_Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Provincias">
+              <PropertyRef Name="IDProvincias" />
+            </Principal>
+            <Dependent Role="Table_Proveedores">
+              <PropertyRef Name="IDProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Table_Almacen" EntityType="Self.Table_Almacen" />
+          <EntitySet Name="Table_Articulos" EntityType="Self.Table_Articulos" />
+          <EntitySet Name="Table_Banco" EntityType="Self.Table_Banco" />
+          <EntitySet Name="Table_Categoria" EntityType="Self.Table_Categoria" />
+          <EntitySet Name="Table_CentroCosto" EntityType="Self.Table_CentroCosto" />
+          <EntitySet Name="Table_Comprobante" EntityType="Self.Table_Comprobante" />
+          <EntitySet Name="Table_CondicionCompra" EntityType="Self.Table_CondicionCompra" />
+          <EntitySet Name="Table_Contable" EntityType="Self.Table_Contable" />
+          <EntitySet Name="Table_CuentaCorriente" EntityType="Self.Table_CuentaCorriente" />
+          <EntitySet Name="Table_DetalleMediosPago" EntityType="Self.Table_DetalleMediosPago" />
+          <EntitySet Name="Table_DetallePago" EntityType="Self.Table_DetallePago" />
+          <EntitySet Name="Table_Empleado" EntityType="Self.Table_Empleado" />
+          <EntitySet Name="Table_Empresa" EntityType="Self.Table_Empresa" />
+          <EntitySet Name="Table_Estados" EntityType="Self.Table_Estados" />
+          <EntitySet Name="Table_Localidades" EntityType="Self.Table_Localidades" />
+          <EntitySet Name="Table_MedioPago" EntityType="Self.Table_MedioPago" />
+          <EntitySet Name="Table_Pagos" EntityType="Self.Table_Pagos" />
+          <EntitySet Name="Table_Profiles" EntityType="Self.Table_Profiles" />
+          <EntitySet Name="Table_Proveedores" EntityType="Self.Table_Proveedores" />
+          <EntitySet Name="Table_Provincias" EntityType="Self.Table_Provincias" />
+          <EntitySet Name="Table_TipoComprobante" EntityType="Self.Table_TipoComprobante" />
+          <EntitySet Name="Table_TipoFactura" EntityType="Self.Table_TipoFactura" />
+          <EntitySet Name="Table_Ubicacion" EntityType="Self.Table_Ubicacion" />
+          <EntitySet Name="Table_User" EntityType="Self.Table_User" />
+          <EntitySet Name="Table_Vencimiento" EntityType="Self.Table_Vencimiento" />
+          <EntitySet Name="Table_Zonas" EntityType="Self.Table_Zonas" />
+          <EntitySet Name="View_Almacenes" EntityType="Self.View_Almacenes" />
+          <EntitySet Name="View_DetalleArticulo" EntityType="Self.View_DetalleArticulo" />
+          <EntitySet Name="View_DetalleArticuloComprobante" EntityType="Self.View_DetalleArticuloComprobante" />
+          <EntitySet Name="View_DETALLEFACTURA" EntityType="Self.View_DETALLEFACTURA" />
+          <EntitySet Name="View_ListaEmpleados" EntityType="Self.View_ListaEmpleados" />
+          <EntitySet Name="View_OrdenPago" EntityType="Self.View_OrdenPago" />
+          <EntitySet Name="View_Proveedores" EntityType="Self.View_Proveedores" />
+          <AssociationSet Name="FK_Table_Almacen_Table_Empleado" Association="Self.FK_Table_Almacen_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Almacen_Table_Zonas" Association="Self.FK_Table_Almacen_Table_Zonas">
+            <End Role="Table_Zonas" EntitySet="Table_Zonas" />
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Articulos_Table_Categoria" Association="Self.FK_Table_Articulos_Table_Categoria">
+            <End Role="Table_Categoria" EntitySet="Table_Categoria" />
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Articulos_Table_Ubicacion" Association="Self.FK_Table_Articulos_Table_Ubicacion">
+            <End Role="Table_Ubicacion" EntitySet="Table_Ubicacion" />
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_Banco" Association="Self.FK_Table_DetalleMediosPago_Table_Banco">
+            <End Role="Table_Banco" EntitySet="Table_Banco" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Pagos_Table_Banco" Association="Self.FK_Table_Pagos_Table_Banco">
+            <End Role="Table_Banco" EntitySet="Table_Banco" />
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_CentroCosto" Association="Self.FK_Table_Comprobante_Table_CentroCosto">
+            <End Role="Table_CentroCosto" EntitySet="Table_CentroCosto" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_CondicionCompra" Association="Self.FK_Table_Comprobante_Table_CondicionCompra">
+            <End Role="Table_CondicionCompra" EntitySet="Table_CondicionCompra" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Contable" Association="Self.FK_Table_Comprobante_Table_Contable">
+            <End Role="Table_Contable" EntitySet="Table_Contable" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Estados" Association="Self.FK_Table_Comprobante_Table_Estados">
+            <End Role="Table_Estados" EntitySet="Table_Estados" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_Proveedores" Association="Self.FK_Table_Comprobante_Table_Proveedores">
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_TipoComprobante" Association="Self.FK_Table_Comprobante_Table_TipoComprobante">
+            <End Role="Table_TipoComprobante" EntitySet="Table_TipoComprobante" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Comprobante_Table_TipoFactura" Association="Self.FK_Table_Comprobante_Table_TipoFactura">
+            <End Role="Table_TipoFactura" EntitySet="Table_TipoFactura" />
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallePago_Table_Comprobante" Association="Self.FK_Table_DetallePago_Table_Comprobante">
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+            <End Role="Table_DetallePago" EntitySet="Table_DetallePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_MedioPago" Association="Self.FK_Table_DetalleMediosPago_Table_MedioPago">
+            <End Role="Table_MedioPago" EntitySet="Table_MedioPago" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetalleMediosPago_Table_Pagos" Association="Self.FK_Table_DetalleMediosPago_Table_Pagos">
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+            <End Role="Table_DetalleMediosPago" EntitySet="Table_DetalleMediosPago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallePago_Table_Pagos" Association="Self.FK_Table_DetallePago_Table_Pagos">
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+            <End Role="Table_DetallePago" EntitySet="Table_DetallePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Empleado_Table_Empleado" Association="Self.FK_Table_Empleado_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_Empleado1" EntitySet="Table_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Proveedores_Table_Localidades" Association="Self.FK_Table_Proveedores_Table_Localidades">
+            <End Role="Table_Localidades" EntitySet="Table_Localidades" />
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Pagos_Table_MedioPago" Association="Self.FK_Table_Pagos_Table_MedioPago">
+            <End Role="Table_MedioPago" EntitySet="Table_MedioPago" />
+            <End Role="Table_Pagos" EntitySet="Table_Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Proveedores_Table_Provincias" Association="Self.FK_Table_Proveedores_Table_Provincias">
+            <End Role="Table_Provincias" EntitySet="Table_Provincias" />
+            <End Role="Table_Proveedores" EntitySet="Table_Proveedores" />
+          </AssociationSet>
+          <FunctionImport Name="EncabezadoDeuda" ReturnType="Collection(dbsitemfacturacionModel.EncabezadoDeuda_Result)">
+          <Parameter Name="idproveedor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EncabezadoOrdenPago" ReturnType="Collection(dbsitemfacturacionModel.EncabezadoOrdenPago_Result)">
+          <Parameter Name="IdPago" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FacturasPendientesPago" ReturnType="Collection(dbsitemfacturacionModel.FacturasPendientesPago_Result)">
+          <Parameter Name="idproveedor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="OrdenPago" ReturnType="Collection(dbsitemfacturacionModel.OrdenPago_Result)">
+          <Parameter Name="Idpago" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SeleccionarMediosDePagos" ReturnType="Collection(dbsitemfacturacionModel.SeleccionarMediosDePagos_Result)">
+          <Parameter Name="idPago" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Table_IngresoMateriales" EntityType="dbsitemfacturacionModel.Table_IngresoMateriales" />
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Almacen" Association="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Almacen">
+            <End Role="Table_Almacen" EntitySet="Table_Almacen" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Articulos" Association="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Articulos">
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_IngresoMateriales_Table_Empleado" Association="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Empleado">
+            <End Role="Table_Empleado" EntitySet="Table_Empleado" />
+            <End Role="Table_IngresoMateriales" EntitySet="Table_IngresoMateriales" />
+          </AssociationSet>
+          <FunctionImport Name="FACTURASXPROVEEDORES" ReturnType="Collection(dbsitemfacturacionModel.FACTURASXPROVEEDORES_Result)">
+            <Parameter Name="FECHAINICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="FECHAFIN" Mode="In" Type="DateTime" />
+            <Parameter Name="IDPROVEEDOR" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Table_DetallesComprobanteArticulos" EntityType="dbsitemfacturacionModel.Table_DetallesComprobanteArticulos" />
+          <AssociationSet Name="FK_Table_DetallesComprobanteArticulos_Table_Articulos" Association="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Articulos">
+            <End Role="Table_Articulos" EntitySet="Table_Articulos" />
+            <End Role="Table_DetallesComprobanteArticulos" EntitySet="Table_DetallesComprobanteArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_DetallesComprobanteArticulos_Table_Comprobante" Association="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Comprobante">
+            <End Role="Table_Comprobante" EntitySet="Table_Comprobante" />
+            <End Role="Table_DetallesComprobanteArticulos" EntitySet="Table_DetallesComprobanteArticulos" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="EncabezadoDeuda_Result">
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Razon" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Cuit" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="EncabezadoOrdenPago_Result">
+          <Property Type="String" Name="Razon" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Cuit" Nullable="false" MaxLength="11" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="Double" Name="Importe" Nullable="true" />
+          <Property Type="String" Name="Concepto" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="FacturasPendientesPago_Result">
+          <Property Type="Int32" Name="IdComprobante" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoFactura" Nullable="true" MaxLength="8" />
+          <Property Type="Double" Name="Total" Nullable="true" />
+          <Property Type="Int32" Name="IdEstado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OrdenPago_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="String" Name="TipoFactura" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoFactura" Nullable="true" MaxLength="8" />
+          <Property Type="Double" Name="Importe" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SeleccionarMediosDePagos_Result">
+          <Property Type="String" Name="MediosPago" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NoCheque" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Importe" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Table_IngresoMateriales">
+          <Key>
+            <PropertyRef Name="iDingresoMateriales" />
+          </Key>
+          <Property Name="iDingresoMateriales" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="NoRemito" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="IdAlmacen" Type="Int32" />
+          <Property Name="IdRecepcion" Type="Int32" />
+          <Property Name="idArticulo" Type="Int32" />
+          <Property Name="Cantidad" Type="Double" />
+          <NavigationProperty Name="Table_Almacen" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Almacen" FromRole="Table_IngresoMateriales" ToRole="Table_Almacen" />
+          <NavigationProperty Name="Table_Articulos" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Articulos" FromRole="Table_IngresoMateriales" ToRole="Table_Articulos" />
+          <NavigationProperty Name="Table_Empleado" Relationship="dbsitemfacturacionModel.FK_Table_IngresoMateriales_Table_Empleado" FromRole="Table_IngresoMateriales" ToRole="Table_Empleado" />
+        </EntityType>
+        <Association Name="FK_Table_IngresoMateriales_Table_Almacen">
+          <End Type="dbsitemfacturacionModel.Table_Almacen" Role="Table_Almacen" Multiplicity="0..1" />
+          <End Type="dbsitemfacturacionModel.Table_IngresoMateriales" Role="Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Almacen">
+              <PropertyRef Name="IdAlmacen" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="IdAlmacen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IngresoMateriales_Table_Articulos">
+          <End Type="dbsitemfacturacionModel.Table_Articulos" Role="Table_Articulos" Multiplicity="0..1" />
+          <End Type="dbsitemfacturacionModel.Table_IngresoMateriales" Role="Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Articulos">
+              <PropertyRef Name="IDArticulo" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="idArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_IngresoMateriales_Table_Empleado">
+          <End Type="dbsitemfacturacionModel.Table_Empleado" Role="Table_Empleado" Multiplicity="0..1" />
+          <End Type="dbsitemfacturacionModel.Table_IngresoMateriales" Role="Table_IngresoMateriales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Empleado">
+              <PropertyRef Name="IDEmpleado" />
+            </Principal>
+            <Dependent Role="Table_IngresoMateriales">
+              <PropertyRef Name="IdRecepcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FACTURASXPROVEEDORES_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="String" Name="TipoFactura" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sucursal" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoFactura" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Condiciondecompra" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Total" Nullable="true" />
+          <Property Type="String" Name="Estados" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Table_DetallesComprobanteArticulos">
+          <Key>
+            <PropertyRef Name="idTable_DetallesComprobanteArticulos" />
+          </Key>
+          <Property Name="idTable_DetallesComprobanteArticulos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComprobante" Type="Int32" />
+          <Property Name="IdArticulo" Type="Int32" />
+          <Property Name="Cantidad" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Importe" Type="Double" />
+          <Property Name="IvaCalculado" Type="Double" />
+          <NavigationProperty Name="Table_Articulos" Relationship="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Articulos" FromRole="Table_DetallesComprobanteArticulos" ToRole="Table_Articulos" />
+          <NavigationProperty Name="Table_Comprobante" Relationship="dbsitemfacturacionModel.FK_Table_DetallesComprobanteArticulos_Table_Comprobante" FromRole="Table_DetallesComprobanteArticulos" ToRole="Table_Comprobante" />
+        </EntityType>
+        <Association Name="FK_Table_DetallesComprobanteArticulos_Table_Articulos">
+          <End Type="dbsitemfacturacionModel.Table_Articulos" Role="Table_Articulos" Multiplicity="0..1" />
+          <End Type="dbsitemfacturacionModel.Table_DetallesComprobanteArticulos" Role="Table_DetallesComprobanteArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Articulos">
+              <PropertyRef Name="IDArticulo" />
+            </Principal>
+            <Dependent Role="Table_DetallesComprobanteArticulos">
+              <PropertyRef Name="IdArticulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_DetallesComprobanteArticulos_Table_Comprobante">
+          <End Type="dbsitemfacturacionModel.Table_Comprobante" Role="Table_Comprobante" Multiplicity="0..1" />
+          <End Type="dbsitemfacturacionModel.Table_DetallesComprobanteArticulos" Role="Table_DetallesComprobanteArticulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Comprobante">
+              <PropertyRef Name="IdComprobante" />
+            </Principal>
+            <Dependent Role="Table_DetallesComprobanteArticulos">
+              <PropertyRef Name="IdComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbsitemfacturacionModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Table_Almacen">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Almacen">
+              <MappingFragment StoreEntitySet="Table_Almacen">
+                <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdEncargado" ColumnName="IdEncargado" />
+                <ScalarProperty Name="IDZona" ColumnName="IDZona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Articulos">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Articulos">
+              <MappingFragment StoreEntitySet="Table_Articulos">
+                <ScalarProperty Name="IDArticulo" ColumnName="IDArticulo" />
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+                <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Banco">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Banco">
+              <MappingFragment StoreEntitySet="Table_Banco">
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CBU" ColumnName="CBU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Categoria">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Categoria">
+              <MappingFragment StoreEntitySet="Table_Categoria">
+                <ScalarProperty Name="IDCategoria" ColumnName="IDCategoria" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_CentroCosto">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_CentroCosto">
+              <MappingFragment StoreEntitySet="Table_CentroCosto">
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="CentroCosto" ColumnName="CentroCosto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Comprobante">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Comprobante">
+              <MappingFragment StoreEntitySet="Table_Comprobante">
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="IdTipoComprobante" ColumnName="IdTipoComprobante" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdTipoFactura" ColumnName="IdTipoFactura" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Contable" ColumnName="Contable" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCondicionCompra" ColumnName="IdCondicionCompra" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IIBB" ColumnName="IIBB" />
+                <ScalarProperty Name="Retenciones" ColumnName="Retenciones" />
+                <ScalarProperty Name="ConceptosNograbado" ColumnName="ConceptosNograbado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_CondicionCompra">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_CondicionCompra">
+              <MappingFragment StoreEntitySet="Table_CondicionCompra">
+                <ScalarProperty Name="IdCondicionCompra" ColumnName="IdCondicionCompra" />
+                <ScalarProperty Name="Condiciondecompra" ColumnName="Condiciondecompra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Contable">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Contable">
+              <MappingFragment StoreEntitySet="Table_Contable">
+                <ScalarProperty Name="IdContable" ColumnName="IdContable" />
+                <ScalarProperty Name="Contable" ColumnName="Contable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_CuentaCorriente">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_CuentaCorriente">
+              <MappingFragment StoreEntitySet="Table_CuentaCorriente">
+                <ScalarProperty Name="IdCuentaCorriente" ColumnName="IdCuentaCorriente" />
+                <ScalarProperty Name="IDProveedor" ColumnName="IDProveedor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Vencimiento" ColumnName="Vencimiento" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_DetalleMediosPago">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_DetalleMediosPago">
+              <MappingFragment StoreEntitySet="Table_DetalleMediosPago">
+                <ScalarProperty Name="IdDetalleMedioPago" ColumnName="IdDetalleMedioPago" />
+                <ScalarProperty Name="IdMedioPago" ColumnName="IdMedioPago" />
+                <ScalarProperty Name="NoCheque" ColumnName="NoCheque" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_DetallePago">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_DetallePago">
+              <MappingFragment StoreEntitySet="Table_DetallePago">
+                <ScalarProperty Name="IdDetallePago" ColumnName="IdDetallePago" />
+                <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
+                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Empleado">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Empleado">
+              <MappingFragment StoreEntitySet="Table_Empleado">
+                <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="cuit" ColumnName="cuit" />
+                <ScalarProperty Name="cuil" ColumnName="cuil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Empresa">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Empresa">
+              <MappingFragment StoreEntitySet="Table_Empresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Estados">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Estados">
+              <MappingFragment StoreEntitySet="Table_Estados">
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="Estados" ColumnName="Estados" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Localidades">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Localidades">
+              <MappingFragment StoreEntitySet="Table_Localidades">
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="Localidades" ColumnName="Localidades" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_MedioPago">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_MedioPago">
+              <MappingFragment StoreEntitySet="Table_MedioPago">
+                <ScalarProperty Name="IdMedioPago" ColumnName="IdMedioPago" />
+                <ScalarProperty Name="MediosPago" ColumnName="MediosPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Pagos">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Pagos">
+              <MappingFragment StoreEntitySet="Table_Pagos">
+                <ScalarProperty Name="Idpago" ColumnName="Idpago" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="idMedioPago" ColumnName="idMedioPago" />
+                <ScalarProperty Name="idCuentaCorriente" ColumnName="idCuentaCorriente" />
+                <ScalarProperty Name="Nocheque" ColumnName="Nocheque" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Profiles">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Profiles">
+              <MappingFragment StoreEntitySet="Table_Profiles">
+                <ScalarProperty Name="Id_Profiles" ColumnName="Id_Profiles" />
+                <ScalarProperty Name="Profiles" ColumnName="Profiles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Proveedores">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Proveedores">
+              <MappingFragment StoreEntitySet="Table_Proveedores">
+                <ScalarProperty Name="IdProveedores" ColumnName="IdProveedores" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="Cuit" ColumnName="Cuit" />
+                <ScalarProperty Name="IngresosBrutos" ColumnName="IngresosBrutos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="IDProvincia" ColumnName="IDProvincia" />
+                <ScalarProperty Name="IDLocalidad" ColumnName="IDLocalidad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Provincias">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Provincias">
+              <MappingFragment StoreEntitySet="Table_Provincias">
+                <ScalarProperty Name="IDProvincias" ColumnName="IDProvincias" />
+                <ScalarProperty Name="Provincias" ColumnName="Provincias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_TipoComprobante">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_TipoComprobante">
+              <MappingFragment StoreEntitySet="Table_TipoComprobante">
+                <ScalarProperty Name="IdTipoComprobante" ColumnName="IdTipoComprobante" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_TipoFactura">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_TipoFactura">
+              <MappingFragment StoreEntitySet="Table_TipoFactura">
+                <ScalarProperty Name="IdTipoFactura" ColumnName="IdTipoFactura" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Ubicacion">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Ubicacion">
+              <MappingFragment StoreEntitySet="Table_Ubicacion">
+                <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_User">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_User">
+              <MappingFragment StoreEntitySet="Table_User">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IDProfile" ColumnName="IDProfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Vencimiento">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Vencimiento">
+              <MappingFragment StoreEntitySet="Table_Vencimiento">
+                <ScalarProperty Name="IdVencimiento" ColumnName="IdVencimiento" />
+                <ScalarProperty Name="Vencimiento" ColumnName="Vencimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Zonas">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_Zonas">
+              <MappingFragment StoreEntitySet="Table_Zonas">
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="Zonas" ColumnName="Zonas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Almacenes">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_Almacenes">
+              <MappingFragment StoreEntitySet="View_Almacenes">
+                <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="NombreEncargado" ColumnName="NombreEncargado" />
+                <ScalarProperty Name="Zonas" ColumnName="Zonas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_DetalleArticulo">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_DetalleArticulo">
+              <MappingFragment StoreEntitySet="View_DetalleArticulo">
+                <ScalarProperty Name="IDArticulo" ColumnName="IDArticulo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_DetalleArticuloComprobante">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_DetalleArticuloComprobante">
+              <MappingFragment StoreEntitySet="View_DetalleArticuloComprobante">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="idTable_DetallesComprobanteArticulos" ColumnName="idTable_DetallesComprobanteArticulos" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_DETALLEFACTURA">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_DETALLEFACTURA">
+              <MappingFragment StoreEntitySet="View_DETALLEFACTURA">
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="TipoComprobante" ColumnName="TipoComprobante" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_ListaEmpleados">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_ListaEmpleados">
+              <MappingFragment StoreEntitySet="View_ListaEmpleados">
+                <ScalarProperty Name="IDEmpleado" ColumnName="IDEmpleado" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_OrdenPago">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_OrdenPago">
+              <MappingFragment StoreEntitySet="View_OrdenPago">
+                <ScalarProperty Name="Idpago" ColumnName="Idpago" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="MediosPago" ColumnName="MediosPago" />
+                <ScalarProperty Name="Nocheque" ColumnName="Nocheque" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+                <ScalarProperty Name="ImporteFactura" ColumnName="ImporteFactura" />
+                <ScalarProperty Name="RazonProveedor" ColumnName="RazonProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Proveedores">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.View_Proveedores">
+              <MappingFragment StoreEntitySet="View_Proveedores">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="Cuit" ColumnName="Cuit" />
+                <ScalarProperty Name="IngresosBrutos" ColumnName="IngresosBrutos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Localidades" ColumnName="Localidades" />
+                <ScalarProperty Name="Provincias" ColumnName="Provincias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EncabezadoDeuda" FunctionName="dbsitemfacturacionModel.Store.EncabezadoDeuda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.EncabezadoDeuda_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="Cuit" ColumnName="Cuit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EncabezadoOrdenPago" FunctionName="dbsitemfacturacionModel.Store.EncabezadoOrdenPago">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.EncabezadoOrdenPago_Result">
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="Cuit" ColumnName="Cuit" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FacturasPendientesPago" FunctionName="dbsitemfacturacionModel.Store.FacturasPendientesPago">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.FacturasPendientesPago_Result">
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OrdenPago" FunctionName="dbsitemfacturacionModel.Store.OrdenPago">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.OrdenPago_Result">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SeleccionarMediosDePagos" FunctionName="dbsitemfacturacionModel.Store.SeleccionarMediosDePagos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.SeleccionarMediosDePagos_Result">
+                <ScalarProperty Name="MediosPago" ColumnName="MediosPago" />
+                <ScalarProperty Name="NoCheque" ColumnName="NoCheque" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Table_IngresoMateriales">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_IngresoMateriales">
+              <MappingFragment StoreEntitySet="Table_IngresoMateriales">
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idArticulo" ColumnName="idArticulo" />
+                <ScalarProperty Name="IdRecepcion" ColumnName="IdRecepcion" />
+                <ScalarProperty Name="IdAlmacen" ColumnName="IdAlmacen" />
+                <ScalarProperty Name="NoRemito" ColumnName="NoRemito" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="iDingresoMateriales" ColumnName="iDingresoMateriales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FACTURASXPROVEEDORES" FunctionName="dbsitemfacturacionModel.Store.FACTURASXPROVEEDORES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbsitemfacturacionModel.FACTURASXPROVEEDORES_Result">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="TipoFactura" ColumnName="TipoFactura" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+                <ScalarProperty Name="Condiciondecompra" ColumnName="Condiciondecompra" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Estados" ColumnName="Estados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Table_DetallesComprobanteArticulos">
+            <EntityTypeMapping TypeName="dbsitemfacturacionModel.Table_DetallesComprobanteArticulos">
+              <MappingFragment StoreEntitySet="Table_DetallesComprobanteArticulos">
+                <ScalarProperty Name="IvaCalculado" ColumnName="IvaCalculado" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="idTable_DetallesComprobanteArticulos" ColumnName="idTable_DetallesComprobanteArticulos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

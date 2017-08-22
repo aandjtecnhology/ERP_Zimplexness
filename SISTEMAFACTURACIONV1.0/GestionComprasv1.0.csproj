@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67C9C3DD-A484-4589-A584-08DC6F5CCCA6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SISTEMAFACTURACIONV1._0</RootNamespace>
+    <AssemblyName>SISTEMAFACTURACIONV1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SISTEMAFACTURACIONV1._0.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_windows-social-media-logo_2215378.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlmacenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlmacenControl.Designer.cs">
+      <DependentUpon>AlmacenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArticuloServiciosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ArticuloServiciosControl.Designer.cs">
+      <DependentUpon>ArticuloServiciosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\AlmacenManager.cs" />
+    <Compile Include="Clases\ArticuloManager.cs" />
+    <Compile Include="Clases\ArticulosComprobanteManager.cs" />
+    <Compile Include="Clases\EmpleadoManager.cs" />
+    <Compile Include="ComprobanteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComprobanteControl.Designer.cs">
+      <DependentUpon>ComprobanteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\ComprobantesManager.cs" />
+    <Compile Include="CuentaCorrienteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CuentaCorrienteControl.Designer.cs">
+      <DependentUpon>CuentaCorrienteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\CuentaCorrienteManager.cs" />
+    <Compile Include="DataModel\EncabezadoDeuda_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\EncabezadoOrdenPago_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FacturasPendientesPago_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FACTURASXPROVEEDORES_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\OrdenPago_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\SeleccionarMediosDePagos_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Almacen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Articulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Banco.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Categoria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_CentroCosto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Comprobante.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_CondicionCompra.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Contable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_CuentaCorriente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_DetalleMediosPago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_DetallePago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_DetallesComprobanteArticulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Empleado.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Empresa.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Estados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_IngresoMateriales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Localidades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_MedioPago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Pagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Profiles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Proveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Provincias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_TipoComprobante.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_TipoFactura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Ubicacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Vencimiento.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Table_Zonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_Almacenes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_DetalleArticulo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_DetalleArticuloComprobante.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_DETALLEFACTURA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_ListaEmpleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_OrdenPago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\View_Proveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IngresoMaterialesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IngresoMaterialesControl.Designer.cs">
+      <DependentUpon>IngresoMaterialesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagoControl.Designer.cs">
+      <DependentUpon>PagoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\PagosManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProveedorControl.Designer.cs">
+      <DependentUpon>ProveedorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\ProveedorManager.cs" />
+    <Compile Include="Clases\Provincia_localidad.cs" />
+    <Compile Include="ReporteDeuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteDeuda.Designer.cs">
+      <DependentUpon>ReporteDeuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesForm.Designer.cs">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\ReportesManager.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Clases\UserManager.cs" />
+    <EmbeddedResource Include="AlmacenControl.resx">
+      <DependentUpon>AlmacenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArticuloServiciosControl.resx">
+      <DependentUpon>ArticuloServiciosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprobanteControl.resx">
+      <DependentUpon>ComprobanteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentaCorrienteControl.resx">
+      <DependentUpon>CuentaCorrienteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informe.rdlc" />
+    <EmbeddedResource Include="InformeDeuda.rdlc" />
+    <EmbeddedResource Include="IngresoMaterialesControl.resx">
+      <DependentUpon>IngresoMaterialesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagoControl.resx">
+      <DependentUpon>PagoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ProveedorControl.resx">
+      <DependentUpon>ProveedorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteDeuda.resx">
+      <DependentUpon>ReporteDeuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesForm.resx">
+      <DependentUpon>ReportesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataModel\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModel\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SISTEMAFACTURACIONV1._0.DataModel.EncabezadoOrdenPago_Result.datasource" />
+    <None Include="Properties\DataSources\SISTEMAFACTURACIONV1._0.DataModel.OrdenPago_Result.datasource" />
+    <None Include="Properties\DataSources\SISTEMAFACTURACIONV1._0.DataModel.SeleccionarMediosDePagos_Result.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_LinkedIn_UI-06_2335593.png" />
+    <None Include="Resources\if_cloud-key-lock_532256.png" />
+    <None Include="Resources\if_document-print_118913.png" />
+    <None Include="Resources\if_suppliers_48732.png" />
+    <None Include="Resources\if_finished-work_48678.png" />
+    <None Include="Resources\if_payment-card_48705.png" />
+    <None Include="Resources\if_category_48654 %281%29.png" />
+    <None Include="Resources\if_statistics_48731.png" />
+    <None Include="Resources\if_print_48713.png" />
+    <Content Include="DataModel\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="if_windows-social-media-logo_2215378.ico" />
+    <None Include="Resources\if_logout_59175.png" />
+    <None Include="Resources\22029.png" />
+    <None Include="Resources\if_simpline_43_2305619.png" />
+    <None Include="Resources\if_delicious_54303.png" />
+    <None Include="Resources\if_home_173033.png" />
+    <None Include="Resources\if_network_1287518.png" />
+    <None Include="Resources\if_profle_1055000.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Sales-by-Payment-Method-rep.png" />
+    <None Include="Resources\Payroll_tcm8-112685.jpg" />
+    <None Include="Resources\1498842292_Citycons_magnify.png" />
+    <None Include="Resources\1497545233_arrow-down.png" />
+    <None Include="Resources\1497286592_edit.png" />
+    <None Include="Resources\1494868815_radial_arrows.png" />
+    <None Include="Resources\1497286357_microsoft.png" />
+    <None Include="Resources\1497286033_user.png" />
+    <None Include="Resources\1494867482_application-pgp-signature.png" />
+    <None Include="Resources\1497285708_Cancel.png" />
+    <None Include="Resources\1497285414_Checkmark.png" />
+    <None Include="Resources\1497285228_Fast_Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
