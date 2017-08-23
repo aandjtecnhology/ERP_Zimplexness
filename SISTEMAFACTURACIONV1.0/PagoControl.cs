@@ -98,7 +98,7 @@ namespace SISTEMAFACTURACIONV1._0
                 foreach (DataGridViewRow row in dataGridViewComprobantesPendientes.Rows)
                 {
                     DataGridViewCheckBoxCell ck2 = row.Cells["Column6"] as DataGridViewCheckBoxCell;
-                    if (Convert.ToBoolean(ck2.Value) == false || string.IsNullOrEmpty(maskedTextBox2.Text) == true || dataGridViewMediosPago.Rows.Count == 0)
+                    if (Convert.ToBoolean(ck2.Value) == false || dataGridViewMediosPago.Rows.Count == 0)
                     {
                         MessageBox.Show("Error, Debe al menos seleccionar un comprobante para imputar o Insertar los Medios de Pagos Correspondientes", "Sistema de Gestion de Compras", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -138,7 +138,7 @@ namespace SISTEMAFACTURACIONV1._0
                            
                             int idpago = 0;
                             //INSERTO EN LA TABLA PAGOS Y OBTENGO EL ULTIMO IDPAGO INSERTADO
-                            idpago = p.InsertarPagos(Convert.ToDateTime(maskedTextBox2.Text), totalmediospago, textBoxConceptopago.Text);
+                            idpago = p.InsertarPagos(dateTimePickerFecha.Value, totalmediospago, textBoxConceptopago.Text);
 
                             //APLICO LOS PAGOS A CADA COMPROBANTE
                             //INSERTO EN LA TABLA DETALLE DE PAGOS Y ACTUALIZO EL ESTADO DE LOS COMPROBANTES A 1
@@ -180,7 +180,6 @@ namespace SISTEMAFACTURACIONV1._0
                             //BORRO TODOS LOS DATOS DEL DATA GRID Y DE LOS TEXTBOXES
                             dataGridViewMediosPago.Rows.Clear();
                             dataGridViewComprobantesPendientes.DataSource="";
-                            maskedTextBox2.Clear();
                             textBoxConceptopago.Clear();
                             textBoxNocheque.Clear();
                             textBoxImporte.Clear();

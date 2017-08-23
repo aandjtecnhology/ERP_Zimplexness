@@ -45,13 +45,13 @@ namespace SISTEMAFACTURACIONV1._0
             try
             {
                 Clases.AlmacenManager A = new Clases.AlmacenManager();
-                if (string.IsNullOrEmpty(textBoxNombre.Text)==true||string.IsNullOrEmpty(maskedTextBox1.Text)==true)
+                if (string.IsNullOrEmpty(textBoxNombre.Text)==true)
                 {
                     MessageBox.Show("Error, Debe Insertar los datos","Sistema Gestion de Compras",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (A.InsertarAlmacen(Convert.ToDateTime(maskedTextBox1.Text), textBoxNombre.Text, textBoxCodigo.Text, int.Parse(comboBoxEncargado.SelectedValue.ToString()), int.Parse(comboBoxZonas.SelectedValue.ToString()))==1)
+                    if (A.InsertarAlmacen(dateTimePickerFecha.Value, textBoxNombre.Text, textBoxCodigo.Text, int.Parse(comboBoxEncargado.SelectedValue.ToString()), int.Parse(comboBoxZonas.SelectedValue.ToString()))==1)
                     {
                         MessageBox.Show("Se Inserto el Almacen con exito","Sistema de Gestion de Compras",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         dataGridView1.DataSource = A.ListarAlamcenes();

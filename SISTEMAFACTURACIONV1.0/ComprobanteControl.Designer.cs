@@ -55,6 +55,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.textBoxCant = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.comboBoxProveedor = new System.Windows.Forms.ComboBox();
             this.textBoxNofactura = new System.Windows.Forms.TextBox();
             this.textBoxSucursal = new System.Windows.Forms.TextBox();
@@ -76,16 +78,14 @@
             this.comboBoxCentroCosto = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxIvaCompra = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.checkBoxIva1 = new System.Windows.Forms.CheckBox();
             this.buttonEliminarArticulo = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.checkBoxIva1 = new System.Windows.Forms.CheckBox();
-            this.textBoxIvaCompra = new System.Windows.Forms.TextBox();
-            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -105,7 +105,7 @@
             // 
             // textBoxConceptoPago
             // 
-            this.textBoxConceptoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxConceptoPago.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxConceptoPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConceptoPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxConceptoPago.Location = new System.Drawing.Point(5, 69);
@@ -143,14 +143,14 @@
             // 
             // comboBoxMedioPago
             // 
-            this.comboBoxMedioPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxMedioPago.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxMedioPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxMedioPago.FormattingEnabled = true;
             this.comboBoxMedioPago.Location = new System.Drawing.Point(126, 32);
             this.comboBoxMedioPago.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.comboBoxMedioPago.Name = "comboBoxMedioPago";
-            this.comboBoxMedioPago.Size = new System.Drawing.Size(139, 21);
+            this.comboBoxMedioPago.Size = new System.Drawing.Size(171, 21);
             this.comboBoxMedioPago.TabIndex = 21;
             // 
             // label21
@@ -165,7 +165,7 @@
             // 
             // textBoxImportePago
             // 
-            this.textBoxImportePago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxImportePago.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxImportePago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxImportePago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxImportePago.Location = new System.Drawing.Point(5, 32);
@@ -178,7 +178,7 @@
             // 
             // textBoxIIBB
             // 
-            this.textBoxIIBB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxIIBB.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxIIBB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxIIBB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxIIBB.Location = new System.Drawing.Point(15, 34);
@@ -201,7 +201,7 @@
             // 
             // comboBoxNombreArticulo
             // 
-            this.comboBoxNombreArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxNombreArticulo.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxNombreArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxNombreArticulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxNombreArticulo.FormattingEnabled = true;
@@ -233,7 +233,7 @@
             // 
             // textBoxPrecioCompra
             // 
-            this.textBoxPrecioCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxPrecioCompra.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxPrecioCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxPrecioCompra.Location = new System.Drawing.Point(573, 32);
@@ -246,7 +246,7 @@
             // 
             // textBoxRetenciones
             // 
-            this.textBoxRetenciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxRetenciones.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRetenciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRetenciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxRetenciones.Location = new System.Drawing.Point(146, 34);
@@ -269,7 +269,7 @@
             // 
             // textBoxOtrosGastos
             // 
-            this.textBoxOtrosGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxOtrosGastos.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxOtrosGastos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxOtrosGastos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxOtrosGastos.Location = new System.Drawing.Point(286, 34);
@@ -346,7 +346,7 @@
             // 
             // textBoxCant
             // 
-            this.textBoxCant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxCant.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxCant.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxCant.Location = new System.Drawing.Point(242, 32);
@@ -390,9 +390,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // dateTimePickerFechaVencimiento
+            // 
+            this.dateTimePickerFechaVencimiento.CustomFormat = "";
+            this.dateTimePickerFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFechaVencimiento.Location = new System.Drawing.Point(99, 72);
+            this.dateTimePickerFechaVencimiento.Name = "dateTimePickerFechaVencimiento";
+            this.dateTimePickerFechaVencimiento.Size = new System.Drawing.Size(83, 21);
+            this.dateTimePickerFechaVencimiento.TabIndex = 8;
+            // 
+            // dateTimePickerFecha
+            // 
+            this.dateTimePickerFecha.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.dateTimePickerFecha.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.dateTimePickerFecha.CustomFormat = "";
+            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(5, 72);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(83, 21);
+            this.dateTimePickerFecha.TabIndex = 7;
+            // 
             // comboBoxProveedor
             // 
-            this.comboBoxProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxProveedor.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxProveedor.FormattingEnabled = true;
@@ -403,7 +423,7 @@
             // 
             // textBoxNofactura
             // 
-            this.textBoxNofactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxNofactura.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNofactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNofactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxNofactura.Location = new System.Drawing.Point(747, 31);
@@ -416,7 +436,7 @@
             // 
             // textBoxSucursal
             // 
-            this.textBoxSucursal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxSucursal.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxSucursal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSucursal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxSucursal.Location = new System.Drawing.Point(689, 31);
@@ -429,7 +449,7 @@
             // 
             // comboBoxCondicionCompra
             // 
-            this.comboBoxCondicionCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxCondicionCompra.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxCondicionCompra.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxCondicionCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxCondicionCompra.FormattingEnabled = true;
@@ -472,7 +492,7 @@
             // 
             // comboBoxTipoComprobante
             // 
-            this.comboBoxTipoComprobante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxTipoComprobante.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxTipoComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTipoComprobante.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxTipoComprobante.FormattingEnabled = true;
@@ -535,7 +555,7 @@
             // 
             // comboBoxTipoFactura
             // 
-            this.comboBoxTipoFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxTipoFactura.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxTipoFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTipoFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxTipoFactura.FormattingEnabled = true;
@@ -557,7 +577,7 @@
             // 
             // comboBoxContable
             // 
-            this.comboBoxContable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxContable.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxContable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxContable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxContable.FormattingEnabled = true;
@@ -589,7 +609,7 @@
             // 
             // comboBoxCentroCosto
             // 
-            this.comboBoxCentroCosto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxCentroCosto.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxCentroCosto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxCentroCosto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxCentroCosto.FormattingEnabled = true;
@@ -636,6 +656,16 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             // 
+            // textBoxIvaCompra
+            // 
+            this.textBoxIvaCompra.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxIvaCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxIvaCompra.Location = new System.Drawing.Point(367, 33);
+            this.textBoxIvaCompra.Multiline = true;
+            this.textBoxIvaCompra.Name = "textBoxIvaCompra";
+            this.textBoxIvaCompra.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIvaCompra.TabIndex = 24;
+            // 
             // button1
             // 
             this.button1.Image = global::SISTEMAFACTURACIONV1._0.Properties.Resources._1497285414_Checkmark;
@@ -646,6 +676,18 @@
             this.button1.TabIndex = 17;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // checkBoxIva1
+            // 
+            this.checkBoxIva1.AutoSize = true;
+            this.checkBoxIva1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(232)))), ((int)(((byte)(198)))));
+            this.checkBoxIva1.Location = new System.Drawing.Point(475, 36);
+            this.checkBoxIva1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.checkBoxIva1.Name = "checkBoxIva1";
+            this.checkBoxIva1.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxIva1.TabIndex = 14;
+            this.checkBoxIva1.Text = "Iva Exento";
+            this.checkBoxIva1.UseVisualStyleBackColor = false;
             // 
             // buttonEliminarArticulo
             // 
@@ -699,48 +741,6 @@
             this.buttonCancelar.TabIndex = 35;
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            // 
-            // checkBoxIva1
-            // 
-            this.checkBoxIva1.AutoSize = true;
-            this.checkBoxIva1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.checkBoxIva1.Location = new System.Drawing.Point(475, 36);
-            this.checkBoxIva1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.checkBoxIva1.Name = "checkBoxIva1";
-            this.checkBoxIva1.Size = new System.Drawing.Size(88, 17);
-            this.checkBoxIva1.TabIndex = 14;
-            this.checkBoxIva1.Text = "Iva Exento";
-            this.checkBoxIva1.UseVisualStyleBackColor = false;
-            // 
-            // textBoxIvaCompra
-            // 
-            this.textBoxIvaCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.textBoxIvaCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxIvaCompra.Location = new System.Drawing.Point(367, 33);
-            this.textBoxIvaCompra.Multiline = true;
-            this.textBoxIvaCompra.Name = "textBoxIvaCompra";
-            this.textBoxIvaCompra.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIvaCompra.TabIndex = 24;
-            // 
-            // dateTimePickerFecha
-            // 
-            this.dateTimePickerFecha.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.dateTimePickerFecha.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.dateTimePickerFecha.CustomFormat = "";
-            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFecha.Location = new System.Drawing.Point(5, 72);
-            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
-            this.dateTimePickerFecha.Size = new System.Drawing.Size(83, 21);
-            this.dateTimePickerFecha.TabIndex = 25;
-            // 
-            // dateTimePickerFechaVencimiento
-            // 
-            this.dateTimePickerFechaVencimiento.CustomFormat = "";
-            this.dateTimePickerFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFechaVencimiento.Location = new System.Drawing.Point(99, 72);
-            this.dateTimePickerFechaVencimiento.Name = "dateTimePickerFechaVencimiento";
-            this.dateTimePickerFechaVencimiento.Size = new System.Drawing.Size(83, 21);
-            this.dateTimePickerFechaVencimiento.TabIndex = 26;
             // 
             // ComprobanteControl
             // 

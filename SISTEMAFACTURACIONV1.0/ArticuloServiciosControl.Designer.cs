@@ -82,7 +82,7 @@
             // 
             // textBoxCodigo
             // 
-            this.textBoxCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxCodigo.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxCodigo.Location = new System.Drawing.Point(407, 34);
@@ -102,7 +102,7 @@
             // 
             // textBoxDescripcion
             // 
-            this.textBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxDescripcion.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxDescripcion.Location = new System.Drawing.Point(220, 34);
@@ -122,7 +122,7 @@
             // 
             // comboBoxUbicacion
             // 
-            this.comboBoxUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxUbicacion.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxUbicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxUbicacion.FormattingEnabled = true;
@@ -133,7 +133,7 @@
             // 
             // textBoxIva
             // 
-            this.textBoxIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxIva.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxIva.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxIva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxIva.Location = new System.Drawing.Point(541, 34);
@@ -175,7 +175,7 @@
             // 
             // textBoxfiltro
             // 
-            this.textBoxfiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxfiltro.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxfiltro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxfiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxfiltro.Location = new System.Drawing.Point(77, 25);
@@ -224,7 +224,7 @@
             // 
             // comboBoxCategoria
             // 
-            this.comboBoxCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxCategoria.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxCategoria.FormattingEnabled = true;
@@ -244,7 +244,7 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxNombre.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxNombre.Location = new System.Drawing.Point(7, 34);

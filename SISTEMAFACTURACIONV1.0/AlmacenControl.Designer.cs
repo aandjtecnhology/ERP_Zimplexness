@@ -37,17 +37,18 @@
             this.comboBoxEncargado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePickerFecha);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxCodigo);
             this.groupBox1.Controls.Add(this.button1);
@@ -56,7 +57,6 @@
             this.groupBox1.Controls.Add(this.comboBoxEncargado);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxNombre);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,7 +79,7 @@
             // 
             // textBoxCodigo
             // 
-            this.textBoxCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxCodigo.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxCodigo.Location = new System.Drawing.Point(371, 33);
@@ -109,7 +109,7 @@
             // 
             // comboBoxZonas
             // 
-            this.comboBoxZonas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxZonas.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxZonas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxZonas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxZonas.FormattingEnabled = true;
@@ -121,7 +121,7 @@
             // 
             // comboBoxEncargado
             // 
-            this.comboBoxEncargado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxEncargado.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxEncargado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxEncargado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxEncargado.FormattingEnabled = true;
@@ -148,17 +148,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Fecha Alta";
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.maskedTextBox1.Location = new System.Drawing.Point(500, 33);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(90, 21);
-            this.maskedTextBox1.TabIndex = 3;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -170,7 +159,7 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxNombre.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxNombre.Location = new System.Drawing.Point(10, 33);
@@ -196,6 +185,14 @@
             this.button2.Size = new System.Drawing.Size(75, 41);
             this.button2.TabIndex = 10;
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerFecha
+            // 
+            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(500, 33);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(94, 21);
+            this.dateTimePickerFecha.TabIndex = 12;
             // 
             // AlmacenControl
             // 
@@ -225,11 +222,11 @@
         private System.Windows.Forms.ComboBox comboBoxEncargado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxCodigo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
     }
 }

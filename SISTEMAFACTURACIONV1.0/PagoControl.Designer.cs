@@ -62,8 +62,8 @@
             this.ColumnNC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBanco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComprobantesPendientes)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -84,7 +84,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBox1.Location = new System.Drawing.Point(296, 32);
@@ -106,7 +106,7 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBox1.FormattingEnabled = true;
@@ -153,7 +153,7 @@
             // 
             // textBoxConceptopago
             // 
-            this.textBoxConceptopago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxConceptopago.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxConceptopago.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConceptopago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxConceptopago.Location = new System.Drawing.Point(698, 67);
@@ -180,7 +180,7 @@
             // 
             // comboBoxBanco
             // 
-            this.comboBoxBanco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxBanco.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxBanco.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxBanco.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxBanco.FormattingEnabled = true;
@@ -208,7 +208,7 @@
             // 
             // textBoxNocheque
             // 
-            this.textBoxNocheque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxNocheque.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNocheque.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNocheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxNocheque.Location = new System.Drawing.Point(200, 31);
@@ -246,7 +246,7 @@
             // 
             // comboBoxMediopago
             // 
-            this.comboBoxMediopago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxMediopago.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxMediopago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxMediopago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxMediopago.FormattingEnabled = true;
@@ -274,7 +274,7 @@
             // 
             // textBoxImporte
             // 
-            this.textBoxImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxImporte.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxImporte.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxImporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxImporte.Location = new System.Drawing.Point(490, 30);
@@ -426,18 +426,6 @@
             this.ColumnImporte.HeaderText = "Importe";
             this.ColumnImporte.Name = "ColumnImporte";
             // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.maskedTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.maskedTextBox2.Location = new System.Drawing.Point(698, 28);
-            this.maskedTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(88, 21);
-            this.maskedTextBox2.TabIndex = 51;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
             // button6
             // 
             this.button6.Image = global::SISTEMAFACTURACIONV1._0.Properties.Resources._1497285708_Cancel;
@@ -449,13 +437,21 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
+            // dateTimePickerFecha
+            // 
+            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(698, 26);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(92, 21);
+            this.dateTimePickerFecha.TabIndex = 53;
+            // 
             // PagoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Controls.Add(this.dateTimePickerFecha);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.dataGridViewMediosPago);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button4);
@@ -520,7 +516,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBanco;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnImporte;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
     }
 }

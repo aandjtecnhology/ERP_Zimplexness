@@ -35,7 +35,7 @@ namespace SISTEMAFACTURACIONV1._0
         {
             try
             {
-                if (string.IsNullOrEmpty(maskedTextBoxFechaInicio.Text)==true || string.IsNullOrEmpty(maskedTextBoxFechaFin.Text)==true)
+                if (string.IsNullOrEmpty(comboBoxProveedor.Text)==true)
                 {
                     MessageBox.Show("Error,Debes agrerar las fechas de la consulta","Sistema de Gestion de Compras",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
@@ -44,7 +44,7 @@ namespace SISTEMAFACTURACIONV1._0
                 {
                     ComprobantesManager CManager = new ComprobantesManager();
                     ProveedorManager p = new ProveedorManager();
-                    dataGridViewCuentaCorriente.DataSource = CManager.ListarFacturasXproveedores(Convert.ToDateTime(maskedTextBoxFechaInicio.Text),Convert.ToDateTime(maskedTextBoxFechaFin.Text),p.DevolverIdPRoveedorporNombre(comboBoxProveedor.Text));
+                    dataGridViewCuentaCorriente.DataSource = CManager.ListarFacturasXproveedores(dateTimePickerFechainicio.Value,dateTimePickerFechaFin.Value,p.DevolverIdPRoveedorporNombre(comboBoxProveedor.Text));
                 }
 
 

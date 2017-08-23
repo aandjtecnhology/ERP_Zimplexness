@@ -127,7 +127,7 @@ namespace SISTEMAFACTURACIONV1._0
                             prov.Nombre = textBoxNombre.Text;
                             prov.Razon = textBoxRazon.Text;
                             prov.Cuit = textBoxCuit.Text;
-                            prov.FechaIngreso = Convert.ToDateTime(maskedTextBoxFecha.Text);
+                            prov.FechaIngreso = dateTimePickerFecha.Value;
                             prov.IngresosBrutos = textBoxIngresosBrutos.Text;
                             prov.Telefono = textBoxTelefono.Text;
                             prov.Direccion = textBoxDireccion.Text;
@@ -275,7 +275,7 @@ namespace SISTEMAFACTURACIONV1._0
                             prov.Nombre = textBoxNombre.Text;
                             prov.Razon = textBoxRazon.Text;
                             prov.Cuit = textBoxCuit.Text;
-                            prov.FechaIngreso = Convert.ToDateTime(maskedTextBoxFecha.Text);
+                            prov.FechaIngreso = dateTimePickerFecha.Value;
                             prov.IngresosBrutos = textBoxIngresosBrutos.Text;
                             prov.Telefono = textBoxTelefono.Text;
                             prov.Direccion = textBoxDireccion.Text;
@@ -380,7 +380,7 @@ namespace SISTEMAFACTURACIONV1._0
                             prov.Nombre = textBoxNombre.Text;
                             prov.Razon = textBoxRazon.Text;
                             prov.Cuit = textBoxCuit.Text;
-                            prov.FechaIngreso = Convert.ToDateTime(maskedTextBoxFecha.Text);
+                            prov.FechaIngreso = dateTimePickerFecha.Value;
                             prov.IngresosBrutos = textBoxIngresosBrutos.Text;
                             prov.Telefono = textBoxTelefono.Text;
                             prov.Direccion = textBoxDireccion.Text;

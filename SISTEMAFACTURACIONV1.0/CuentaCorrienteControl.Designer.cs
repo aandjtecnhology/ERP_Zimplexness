@@ -33,11 +33,11 @@
             this.checkBoxTodos = new System.Windows.Forms.CheckBox();
             this.comboBoxProveedor = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBoxFechaFin = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxFechaInicio = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerFechainicio = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFechaFin = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCuentaCorriente)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +54,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePickerFechaFin);
+            this.groupBox1.Controls.Add(this.dateTimePickerFechainicio);
             this.groupBox1.Controls.Add(this.checkBoxTodos);
             this.groupBox1.Controls.Add(this.comboBoxProveedor);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.maskedTextBoxFechaFin);
-            this.groupBox1.Controls.Add(this.maskedTextBoxFechaInicio);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -84,7 +84,7 @@
             // 
             // comboBoxProveedor
             // 
-            this.comboBoxProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxProveedor.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxProveedor.FormattingEnabled = true;
             this.comboBoxProveedor.Location = new System.Drawing.Point(14, 33);
@@ -102,28 +102,6 @@
             this.button1.TabIndex = 8;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // maskedTextBoxFechaFin
-            // 
-            this.maskedTextBoxFechaFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.maskedTextBoxFechaFin.Location = new System.Drawing.Point(159, 71);
-            this.maskedTextBoxFechaFin.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.maskedTextBoxFechaFin.Mask = "00/00/0000";
-            this.maskedTextBoxFechaFin.Name = "maskedTextBoxFechaFin";
-            this.maskedTextBoxFechaFin.Size = new System.Drawing.Size(85, 21);
-            this.maskedTextBoxFechaFin.TabIndex = 7;
-            this.maskedTextBoxFechaFin.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBoxFechaInicio
-            // 
-            this.maskedTextBoxFechaInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.maskedTextBoxFechaInicio.Location = new System.Drawing.Point(14, 72);
-            this.maskedTextBoxFechaInicio.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.maskedTextBoxFechaInicio.Mask = "00/00/0000";
-            this.maskedTextBoxFechaInicio.Name = "maskedTextBoxFechaInicio";
-            this.maskedTextBoxFechaInicio.Size = new System.Drawing.Size(85, 21);
-            this.maskedTextBoxFechaInicio.TabIndex = 6;
-            this.maskedTextBoxFechaInicio.ValidatingType = typeof(System.DateTime);
             // 
             // label3
             // 
@@ -155,6 +133,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre del Proveedor";
             // 
+            // dateTimePickerFechainicio
+            // 
+            this.dateTimePickerFechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFechainicio.Location = new System.Drawing.Point(12, 71);
+            this.dateTimePickerFechainicio.Name = "dateTimePickerFechainicio";
+            this.dateTimePickerFechainicio.Size = new System.Drawing.Size(89, 21);
+            this.dateTimePickerFechainicio.TabIndex = 11;
+            // 
+            // dateTimePickerFechaFin
+            // 
+            this.dateTimePickerFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFechaFin.Location = new System.Drawing.Point(157, 71);
+            this.dateTimePickerFechaFin.Name = "dateTimePickerFechaFin";
+            this.dateTimePickerFechaFin.Size = new System.Drawing.Size(89, 21);
+            this.dateTimePickerFechaFin.TabIndex = 12;
+            // 
             // CuentaCorrienteControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -180,11 +174,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxProveedor;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxFechaFin;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxFechaInicio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxTodos;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechainicio;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechaFin;
     }
 }

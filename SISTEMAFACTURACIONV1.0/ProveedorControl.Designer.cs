@@ -35,7 +35,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.groupBoxProveedor = new System.Windows.Forms.GroupBox();
-            this.maskedTextBoxFecha = new System.Windows.Forms.MaskedTextBox();
+            this.dateTimePickerFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxVencimiento = new System.Windows.Forms.ComboBox();
@@ -107,7 +107,7 @@
             // 
             // textBoxFiltroRazon
             // 
-            this.textBoxFiltroRazon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxFiltroRazon.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxFiltroRazon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFiltroRazon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxFiltroRazon.Location = new System.Drawing.Point(248, 29);
@@ -130,7 +130,7 @@
             // 
             // textBoxFiltro
             // 
-            this.textBoxFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxFiltro.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxFiltro.Location = new System.Drawing.Point(19, 32);
@@ -143,7 +143,7 @@
             // 
             // groupBoxProveedor
             // 
-            this.groupBoxProveedor.Controls.Add(this.maskedTextBoxFecha);
+            this.groupBoxProveedor.Controls.Add(this.dateTimePickerFecha);
             this.groupBoxProveedor.Controls.Add(this.groupBox3);
             this.groupBoxProveedor.Controls.Add(this.buttonActualizar);
             this.groupBoxProveedor.Controls.Add(this.button4);
@@ -174,18 +174,13 @@
             this.groupBoxProveedor.TabIndex = 31;
             this.groupBoxProveedor.TabStop = false;
             // 
-            // maskedTextBoxFecha
+            // dateTimePickerFecha
             // 
-            this.maskedTextBoxFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.maskedTextBoxFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBoxFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.maskedTextBoxFecha.Location = new System.Drawing.Point(608, 32);
-            this.maskedTextBoxFecha.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.maskedTextBoxFecha.Mask = "00/00/0000";
-            this.maskedTextBoxFecha.Name = "maskedTextBoxFecha";
-            this.maskedTextBoxFecha.Size = new System.Drawing.Size(141, 21);
-            this.maskedTextBoxFecha.TabIndex = 4;
-            this.maskedTextBoxFecha.ValidatingType = typeof(System.DateTime);
+            this.dateTimePickerFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFecha.Location = new System.Drawing.Point(607, 32);
+            this.dateTimePickerFecha.Name = "dateTimePickerFecha";
+            this.dateTimePickerFecha.Size = new System.Drawing.Size(102, 21);
+            this.dateTimePickerFecha.TabIndex = 21;
             // 
             // groupBox3
             // 
@@ -212,7 +207,7 @@
             // 
             // comboBoxVencimiento
             // 
-            this.comboBoxVencimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxVencimiento.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxVencimiento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxVencimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxVencimiento.FormattingEnabled = true;
@@ -350,7 +345,7 @@
             // 
             // comboBoxLocalidad
             // 
-            this.comboBoxLocalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxLocalidad.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxLocalidad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxLocalidad.FormattingEnabled = true;
@@ -362,7 +357,7 @@
             // 
             // comboBoxProvincia
             // 
-            this.comboBoxProvincia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.comboBoxProvincia.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxProvincia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.comboBoxProvincia.FormattingEnabled = true;
@@ -374,7 +369,7 @@
             // 
             // textBoxDireccion
             // 
-            this.textBoxDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxDireccion.Location = new System.Drawing.Point(6, 118);
@@ -386,7 +381,7 @@
             // 
             // textBoxTelefono
             // 
-            this.textBoxTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxTelefono.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxTelefono.Location = new System.Drawing.Point(228, 75);
@@ -398,7 +393,7 @@
             // 
             // textBoxIngresosBrutos
             // 
-            this.textBoxIngresosBrutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxIngresosBrutos.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxIngresosBrutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxIngresosBrutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxIngresosBrutos.Location = new System.Drawing.Point(6, 75);
@@ -410,7 +405,7 @@
             // 
             // textBoxCuit
             // 
-            this.textBoxCuit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxCuit.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxCuit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxCuit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxCuit.Location = new System.Drawing.Point(449, 32);
@@ -424,7 +419,7 @@
             // 
             // textBoxRazon
             // 
-            this.textBoxRazon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxRazon.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRazon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRazon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxRazon.Location = new System.Drawing.Point(226, 32);
@@ -436,7 +431,7 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            this.textBoxNombre.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.textBoxNombre.Location = new System.Drawing.Point(6, 32);
@@ -505,7 +500,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.GroupBox groupBoxProveedor;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxFecha;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxVencimiento;
@@ -529,5 +523,6 @@
         private System.Windows.Forms.TextBox textBoxCuit;
         private System.Windows.Forms.TextBox textBoxRazon;
         private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFecha;
     }
 }
