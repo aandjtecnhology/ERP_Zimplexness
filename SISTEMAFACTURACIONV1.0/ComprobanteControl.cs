@@ -200,6 +200,9 @@ namespace SISTEMAFACTURACIONV1._0
                                 comboBoxContable.Enabled = false;
                                 comboBoxCentroCosto.Enabled = false;
                                 comboBoxTipoFactura.Enabled = false;
+                                dateTimePickerFecha.Enabled = false;
+                                dateTimePickerFechaVencimiento.Enabled = false;
+
 
 
                             }
@@ -235,7 +238,7 @@ namespace SISTEMAFACTURACIONV1._0
         {
             try
             {
-                if (string.IsNullOrEmpty(comboBoxNombreArticulo.Text)==true||string.IsNullOrEmpty(textBoxCant.Text)==true)
+                if (string.IsNullOrEmpty(comboBoxNombreArticulo.Text) == true || string.IsNullOrEmpty(textBoxCant.Text) == true||String.IsNullOrEmpty(textBoxSucursal.Text)==true||string.IsNullOrEmpty(textBoxNofactura.Text)==true )
                 {
                     MessageBox.Show("Debe Ingresar el Articulo", "Sistema de Gestion de Compras", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
