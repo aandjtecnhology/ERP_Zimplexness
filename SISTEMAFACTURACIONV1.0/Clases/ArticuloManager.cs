@@ -10,15 +10,15 @@ namespace SISTEMAFACTURACIONV1._0
     {
         //declaracion del datacontext de todas las entities
 
-         public  DataModel.Entities Context;
-         public DataModel.Table_Articulos articulo;
-        public DataModel.Table_IngresoMateriales IngresoMateriales;       
+         public  Model.Entities Context;
+         public Model.Articulos articulo;
+        public Model.IngresoMateriales IngresoMateriales;       
 
-        public List<DataModel.Table_Categoria> Categorias()
+        public List<Model.Categorias> Categorias()
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from cat in Context.Table_Categoria
+                var query = (from cat in Context.Categorias
                              select cat).ToList();
                 return query;
             }
@@ -30,9 +30,9 @@ namespace SISTEMAFACTURACIONV1._0
         public void InsertarArticulos(int idcategoria,  int idubicacion,string nombre, 
             string descripcion, string codigo,float iva )
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                articulo = new DataModel.Table_Articulos();
+                articulo = new Model.Articulos();
                 articulo.IDCategoria = idcategoria;
                 articulo.IdUbicacion = idubicacion;
                 articulo.Nombre = nombre;
@@ -41,7 +41,7 @@ namespace SISTEMAFACTURACIONV1._0
                 articulo.Iva = iva;
 
 
-                Context.Table_Articulos.Add(articulo);
+                Context.Articulos.Add(articulo);
                 Context.SaveChanges();
 
             }
@@ -50,9 +50,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.View_DetalleArticulo> ListarArticulos()
+        public List<Model.View_DetalleArticulo> ListarArticulos()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var query = (from art in Context.View_DetalleArticulo
                              select art).ToList();
@@ -65,13 +65,13 @@ namespace SISTEMAFACTURACIONV1._0
 
         public int EliminarArticulo(int articulo)
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from art in Context.Table_Articulos
+                var query = (from art in Context.Articulos
                              where art.IDArticulo==articulo
                              select art).First();
 
-                Context.Table_Articulos.Remove(query);
+                Context.Articulos.Remove(query);
                 Context.SaveChanges();
                 int result=1;
                 return result;
@@ -81,9 +81,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.View_DetalleArticulo> FiltrarArticulos(string nombre)
+        public List<Model.View_DetalleArticulo> FiltrarArticulos(string nombre)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var query = (from filtro in Context.View_DetalleArticulo
                              where filtro.Nombre.Contains(nombre.ToUpper())
@@ -98,16 +98,16 @@ namespace SISTEMAFACTURACIONV1._0
         public int ActualizarArticulos(int idart,string nombre,int ubicacion,string Descripcion,string codigo)
         {
             int result;
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var art = (from a in Context.Table_Articulos
+                var art = (from a in Context.Articulos
                            where a.IDArticulo==idart
                            select a).ToList();
 
                 foreach (var item in art)
                 {
 
-                    Context.Table_Articulos.Attach(item);
+                    Context.Articulos.Attach(item);
                     item.Nombre = nombre;
                     item.IdUbicacion=ubicacion;
                     item.Descripcion = Descripcion;
@@ -128,11 +128,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public DataModel.Table_Articulos EncontrarArticulo(int idarticulo)
+        public Model.Articulos EncontrarArticulo(int idarticulo)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from a in Context.Table_Articulos
+                var query = (from a in Context.Articulos
                              where a.IDArticulo==idarticulo
                              select a).First();
 
@@ -147,10 +147,10 @@ namespace SISTEMAFACTURACIONV1._0
         public int ValidateArticulo(string nombre)
         {
             int result;
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
                 
-                    var validatearticulo = (from a in Context.Table_Articulos
+                    var validatearticulo = (from a in Context.Articulos
                                         where a.Nombre==nombre
                                         select a).FirstOrDefault();
 
@@ -179,10 +179,10 @@ namespace SISTEMAFACTURACIONV1._0
         {
             int result;
 
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
-                var query = (from a in Context.Table_Articulos
+                var query = (from a in Context.Articulos
                              where a.Nombre == nombre
                              select a.IDArticulo).FirstOrDefault();
                 result = int.Parse(query.ToString());
@@ -195,11 +195,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         //listar ubicacion
 
-        public List<DataModel.Table_Ubicacion> ListarUbicacion()
+        public List<Model.Ubicacion> ListarUbicacion()
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from u in Context.Table_Ubicacion
+                var query = (from u in Context.Ubicacion
                              select u).ToList();
                 return query;
             }
@@ -207,11 +207,11 @@ namespace SISTEMAFACTURACIONV1._0
         }
 
         //listar almacenes
-        public List<DataModel.Table_Almacen> ListarAlmacenes()
+        public List<Model.Almacenes> ListarAlmacenes()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from a in Context.Table_Almacen
+                var query = (from a in Context.Almacenes
                              select a).ToList();
                 return query;
             }
@@ -221,10 +221,10 @@ namespace SISTEMAFACTURACIONV1._0
 
         public List<string> ListarNombresArticulos()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
-                var query = (from a in Context.Table_Articulos
+                var query = (from a in Context.Articulos
 
                              select a.Nombre).ToList();
                 return query;
@@ -237,12 +237,12 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void ActualizarStock(int idarticulo,double cant)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from a in Context.Table_Articulos
+                var query = (from a in Context.Articulos
                              where a.IDArticulo == idarticulo
                              select a).FirstOrDefault();
-                Context.Table_Articulos.Attach(query);
+                Context.Articulos.Attach(query);
                 double stock=query.Stock.Value;
                 double stockupdate = stock + cant;
                 
@@ -258,16 +258,16 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void IngresoMaterialesMetodo(DateTime fecha,string noremito,int idalmacen, int idrecepcion,int idarticulo,float cant)
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                IngresoMateriales = new DataModel.Table_IngresoMateriales();
+                IngresoMateriales = new Model.IngresoMateriales();
                 IngresoMateriales.Fecha = fecha;
                 IngresoMateriales.NoRemito = noremito;
                 IngresoMateriales.IdAlmacen = idalmacen;
                 IngresoMateriales.IdRecepcion = idrecepcion;
                 IngresoMateriales.idArticulo = idarticulo;
                 IngresoMateriales.Cantidad =cant;
-                Context.Table_IngresoMateriales.Add(IngresoMateriales);
+                Context.IngresoMateriales.Add(IngresoMateriales);
                 Context.SaveChanges();
 
 

@@ -9,22 +9,45 @@ namespace SISTEMAFACTURACIONV1._0
    public class Provincia_localidad
     {
 
-        public DataModel.Entities Context = new DataModel.Entities();
+        public Model.Entities Context = new Model.Entities();
 
-        public List<DataModel.Table_Provincias> ListarProvincias()
+        public List<Model.Provincias> ListarProvincias()
         {
-            var query = (from provincia in Context.Table_Provincias select provincia).ToList();
-            return query;
+            using (Context = new Model.Entities())
+            {
+                var query = (from provin in Context.Provincias select provin).ToList();
+                return query;
+            }
+        }
+
+        public List<Model.Localidades> ListarLocalidades()
+        {
+            using (Context = new Model.Entities())
+            {
+                var query = (from loca in Context.Localidades select loca).ToList();
+                return query;
+            }
 
         }
 
-        public List<DataModel.Table_Localidades> ListarLocalidades()
+        public void InsertarLocalidad(string localidad, string cp)
         {
-            var query = (from localidades in Context.Table_Localidades select localidades).ToList();
-            return query;
+            using (Context=new Model.Entities())
+            {
+                Model.Localidades Elocalidad = new Model.Localidades();
+                Elocalidad.Localidades1 = localidad;
+                Elocalidad.CodigoPostal = cp;
+                Context.Localidades.Add(Elocalidad);
+                Context.SaveChanges();
+
+
+            }
+
+
 
 
         }
+
 
 
     }

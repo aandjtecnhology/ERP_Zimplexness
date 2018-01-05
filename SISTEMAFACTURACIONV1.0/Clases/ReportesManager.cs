@@ -8,7 +8,7 @@ namespace SISTEMAFACTURACIONV1._0
 {
   public class ReportesManager
     {
-        public DataModel.Entities Context;
+        public Model.Entities Context;
 
 
 

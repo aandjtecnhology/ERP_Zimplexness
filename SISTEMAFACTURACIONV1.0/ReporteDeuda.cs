@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SISTEMAFACTURACIONV1._0
 {
-    public partial class ReporteDeuda : Form
+    public partial class ReporteDeuda : MetroFramework.Forms.MetroForm
     {
         public ReporteDeuda()
         {
@@ -27,7 +27,7 @@ namespace SISTEMAFACTURACIONV1._0
         private void reportViewer1_Load(object sender, EventArgs e)
         {
             PagosManager p = new PagosManager();
-            EncabezadoDeuda_ResultBindingSource.DataSource = p.EncabezaDeuda(idproveedor);
+            EncabezadoDeuda_ResultBindingSource.DataSource = p.EncabezadpDeuda(idproveedor);
             FacturasPendientesPago_ResultBindingSource.DataSource = p.ListFacturasPendientesPago(idproveedor);
 
 

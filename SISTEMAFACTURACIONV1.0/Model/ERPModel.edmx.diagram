@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="efaa3fe35fbd4a29a68f76e68c0f7b85" Name="Diagram1">
+        <EntityTypeShape EntityType="ERP_SITEMModel.Almacenes" Width="1.5" PointX="16" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Articulos" Width="1.5" PointX="11.25" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Bancos" Width="1.5" PointX="12" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.CategoriaEmpleado" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Categorias" Width="1.5" PointX="9" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.CentroCostos" Width="1.5" PointX="9" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Combustibles" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Comprobantes" Width="1.5" PointX="11.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.CondicionesCompra" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Contable" Width="1.5" PointX="9" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.CuentaCorriente" Width="1.5" PointX="2.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Departamentos" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetalleMantenimientoRepuestos" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetalleMediosPagos" Width="1.5" PointX="16.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetalleProveedor_ProductorSeguro" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetallesComprobanteArticulos" Width="1.5" PointX="13.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetallesPago" Width="1.5" PointX="16.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Empleados" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Empresas" Width="1.5" PointX="12.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Especialidades" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.EstadoCivil" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Estados" Width="1.5" PointX="9" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.EstudiosRealizados" Width="1.5" PointX="2.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.IngresoMateriales" Width="1.5" PointX="18.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Localidades" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Mantenimiento" Width="1.5" PointX="15.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.MarcasVehiculos" Width="1.5" PointX="7.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.MediosPago" Width="1.5" PointX="12" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.ModelosVehiculos" Width="1.5" PointX="17.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Nacionalidades" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.ObraSocial" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Pagos" Width="1.5" PointX="14.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Personas" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.ProductoresSeguro" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Profiles" Width="1.5" PointX="14.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Proveedores" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Provincias" Width="1.5" PointX="3.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Referencias" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.RegistroConducirBool" Width="1.5" PointX="16.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Repuestos" Width="1.5" PointX="18.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.RubroProveedor" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Sexos" Width="1.5" PointX="18.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Sindicatos" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Talleres" Width="1.5" PointX="18.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.TiposComprobante" Width="1.5" PointX="9" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.TiposFactura" Width="1.5" PointX="9" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Ubicacion" Width="1.5" PointX="9" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Users" Width="1.5" PointX="18.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Vehiculos" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Vencimientos" Width="1.5" PointX="18.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Zonas" Width="1.5" PointX="13.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.Solicitudesempleos" Width="2.75" PointX="18.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.View_DetalleArticulo" Width="1.5" PointX="2.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.View_DetalleArticuloComprobante" Width="1.5" PointX="20.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.View_ListaEmpleados" Width="1.5" PointX="19.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.View_Proveedores" Width="1.5" PointX="20.75" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Almacen_Table_Zonas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_IngresoMateriales_Table_Almacen" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Articulos_Table_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Articulos_Table_Ubicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetallesComprobanteArticulos_Table_Articulos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_IngresoMateriales_Table_Articulos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetalleMediosPago_Table_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Pagos_Table_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_CategoriaEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_CentroCosto" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_CondicionCompra" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_Contable" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_Estados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_Proveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_TipoComprobante" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Comprobante_Table_TipoFactura" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetallePago_Table_Comprobante" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetallesComprobanteArticulos_Table_Comprobante" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetalleMediosPago_Table_MedioPago" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetalleMediosPago_Table_Pagos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetalleProveedor_ProductorSeguro_Table_ProductorSeguro" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetalleProveedor_ProductorSeguro_Table_Proveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_DetallePago_Table_Pagos" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Empleado1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Empleado2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Especialidad" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_ObraSocial" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Empleado_Table_Sindicato" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Vehiculos_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Personas_EstadoCivil" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Personas_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Proveedores_Table_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Pagos_Table_MedioPago" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Personas_Nacionalidades" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Personas_ObraSocial" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Referencias_Personas" ManuallyRouted="false" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Table_Proveedores_Table_Provincias" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DatosEmpleadosActivos" Width="1.5" PointX="21.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.DetallesSolicitudesEmpleo" Width="1.5" PointX="15.375" PointY="21.75" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_Users_Profiles" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.SolicitudesEmpleo" Width="1.5" PointX="5.25" PointY="23.25" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_SolicitudesEmpleo_Personas" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.AfectadoEmpresaCliente" Width="1.5" PointX="11.5" PointY="22.25" />
+        <EntityTypeShape EntityType="ERP_SITEMModel.EmpresasClientes" Width="1.5" PointX="9.25" PointY="36.375" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_AfectadoEmpresaCliente_Empleados" />
+        <AssociationConnector Association="ERP_SITEMModel.FK_AfectadoEmpresaCliente_EmpresasClientes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

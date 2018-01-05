@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="SeleccionarMediosDePagos_Result" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SISTEMAFACTURACIONV1._0.DataModel.SeleccionarMediosDePagos_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>SISTEMAFACTURACIONV1._0.Model.SeleccionarMediosDePagos_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

@@ -9,15 +9,15 @@ namespace SISTEMAFACTURACIONV1._0
     class ComprobantesManager
     {
 
-        public DataModel.Entities Context;
+        public Model.Entities Context;
 
 
-        public List<DataModel.Table_CentroCosto> ListarCentroCosto()
+        public List<Model.CentroCostos> ListarCentroCosto()
 
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from centrocosto in Context.Table_CentroCosto select centrocosto).ToList();
+                var query = (from centrocosto in Context.CentroCostos select centrocosto).ToList();
                 return query;
             }
 
@@ -25,11 +25,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_TipoComprobante> ListarTipoComprobantes()
+        public List<Model.TiposComprobante> ListarTipoComprobantes()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from tipocomp in Context.Table_TipoComprobante
+                var query = (from tipocomp in Context.TiposComprobante
                              select tipocomp).ToList();
                 return query;
 
@@ -38,11 +38,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_TipoFactura> ListarTipoFactura()
+        public List<Model.TiposFactura> ListarTipoFactura()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from tipofactura in Context.Table_TipoFactura select tipofactura).ToList();
+                var query = (from tipofactura in Context.TiposFactura select tipofactura).ToList();
                 return query;
 
             }
@@ -50,11 +50,22 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_Contable> ListarContable()
+        public List<Model.SP_DEUDASPROVEEDORES_Result> ListarDeudasProveedores(DateTime fechainicio, DateTime fechafin)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from contable in Context.Table_Contable select contable).ToList();
+                var query = Context.SP_DEUDASPROVEEDORES(fechainicio, fechafin);
+                return query.ToList();
+
+            }
+
+        }
+
+        public List<Model.Contable> ListarContable()
+        {
+            using (Context = new Model.Entities())
+            {
+                var query = (from contable in Context.Contable select contable).ToList();
                 return query;
             }
 
@@ -62,11 +73,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_MedioPago> MediosdePago()
+        public List<Model.MediosPago> MediosdePago()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from mdp in Context.Table_MedioPago
+                var query = (from mdp in Context.MediosPago
                              select mdp).ToList();
                 return query;
 
@@ -78,11 +89,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_Banco> Bancos()
+        public List<Model.Bancos> Bancos()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from b in Context.Table_Banco
+                var query = (from b in Context.Bancos
                              select b).ToList();
                 return query;
 
@@ -96,9 +107,9 @@ namespace SISTEMAFACTURACIONV1._0
                                       int idcentrocosto,int tipofactura,int contable,int condicioncompra,
                                       int idproveedor)
         {   int result;
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                DataModel.Table_Comprobante c = new DataModel.Table_Comprobante();
+                Model.Comprobantes c = new Model.Comprobantes();
                 c.Sucursal = sucursal;
                 c.NoFactura = nofactura;
                 c.Fecha = fecha;
@@ -109,7 +120,7 @@ namespace SISTEMAFACTURACIONV1._0
                 c.Contable = contable;
                 c.IdCondicionCompra = condicioncompra;
                 c.IdProveedor = idproveedor;
-                Context.Table_Comprobante.Add(c);
+                Context.Comprobantes.Add(c);
                 Context.SaveChanges();
                 result = 1;
                 return result;
@@ -118,15 +129,32 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public int DevolverIDporNoFactura(string facta, string factb)
+        public int DevolverIDporNoFactura(string facta, string factb,int idproveedor)
         {
             int result;
 
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
-                var query = (from c in Context.Table_Comprobante
-                             where c.Sucursal == facta && c.NoFactura == factb
+                var query = (from c in Context.Comprobantes
+                             where (c.Sucursal == facta && c.NoFactura == factb) && c.IdProveedor==idproveedor
+                             select c.IdComprobante).FirstOrDefault();
+                result = int.Parse(query.ToString());
+
+                return result;
+
+            }
+
+        }
+        public int DevolverIDporNoFactura2(string facta, string factb)
+        {
+            int result;
+
+            using (Context = new Model.Entities())
+            {
+
+                var query = (from c in Context.Comprobantes
+                             where (c.Sucursal == facta && c.NoFactura == factb) 
                              select c.IdComprobante).FirstOrDefault();
                 result = int.Parse(query.ToString());
 
@@ -136,11 +164,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_CondicionCompra> ListarCondicionCompra()
+        public List<Model.CondicionesCompra> ListarCondicionCompra()
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from c in Context.Table_CondicionCompra
+                var query = (from c in Context.CondicionesCompra
                              select c).ToList();
                 return query;
 
@@ -151,9 +179,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.View_DetalleArticuloComprobante> VistaComprobantesArticulos(int idcomprobante)
+        public List<Model.View_DetalleArticuloComprobante> VistaComprobantesArticulos(int idcomprobante)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var query = (from a in Context.View_DetalleArticuloComprobante
                              where a.IdComprobante == idcomprobante
@@ -166,21 +194,21 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void ActualizarImporteComprobante(int idcomprobante)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from a in Context.Table_DetallesComprobanteArticulos
+                var query = (from a in Context.DetallesComprobanteArticulos
                              where a.IdComprobante == idcomprobante
                              select a.Importe).ToList();
 
 
-                var query2 = (from c in Context.Table_Comprobante
+                var query2 = (from c in Context.Comprobantes
                               where c.IdComprobante == idcomprobante
                               select c).ToList();
 
 
                 foreach (var item in query2)
                 {
-                    Context.Table_Comprobante.Attach(item);
+                    Context.Comprobantes.Attach(item);
                     
                     Double IMPORTE= Math.Round( query.Sum().Value,2);
 
@@ -195,12 +223,12 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.Table_Comprobante> ListarComprobantesPendientes(int idproveedor)
+        public List<Model.Comprobantes> ListarComprobantesPendientes(int idproveedor)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
-                var query = (from c in Context.Table_Comprobante
+                var query = (from c in Context.Comprobantes
                              where c.IdEstado == 2
                              select c).ToList();
                 return query;
@@ -218,15 +246,15 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void ActualizarEstado(int idcomprobante, int idestado)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var comprobante = (from c in Context.Table_Comprobante
+                var comprobante = (from c in Context.Comprobantes
                                    where c.IdComprobante == idcomprobante
                                    select c).ToList();
 
                 foreach (var item in comprobante)
                 {
-                    Context.Table_Comprobante.Attach(item);
+                    Context.Comprobantes.Attach(item);
                     item.IdEstado = idestado;
                     Context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                     Context.SaveChanges();
@@ -242,9 +270,10 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.FACTURASXPROVEEDORES_Result> ListarFacturasXproveedores(DateTime fechainicio,DateTime fechafin,int idproveedor)
+
+        public List<Model.FACTURASXPROVEEDORES_Result> ListarFacturasXproveedores(DateTime fechainicio,DateTime fechafin,int idproveedor)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var query = Context.FACTURASXPROVEEDORES(fechainicio,fechafin,idproveedor);
                 return query.ToList() ;
@@ -253,23 +282,46 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public void ActualizarOtrosGastosComprobante(int idcomprobante, double iibb, double retenciones,double otrosgastos )
+        public List<Model.Gastos_ComprasxPeriodo_Result> ListarFacturasComprasGastos(DateTime fechainicio, DateTime fechafin)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-               var query2 = (from c in Context.Table_Comprobante
+                var query = Context.Gastos_ComprasxPeriodo(fechainicio,fechafin);
+                return query.ToList();
+
+            }
+
+        }
+
+        public List<Model.CuentasxPagarProveedores_Result> ListarCuentasxPagarProveedores()
+        {
+            using (Context = new Model.Entities())
+            {
+                var query = Context.CuentasxPagarProveedores();
+                return query.ToList();
+
+            }
+
+        }
+
+
+        public void ActualizarOtrosGastosComprobante(int idcomprobante, double iibb, double retenciones,double otrosgastos,double percepcionesIva )
+        {
+            using (Context = new Model.Entities())
+            {
+               var query2 = (from c in Context.Comprobantes
                               where c.IdComprobante == idcomprobante
                               select c).ToList();
 
 
                 foreach (var item in query2)
                 {
-                    Context.Table_Comprobante.Attach(item);
+                    Context.Comprobantes.Attach(item);
 
                     item.IIBB = iibb;
                     item.Retenciones = retenciones;
                     item.ConceptosNograbado = otrosgastos;
-
+                    item.PercepcionIva=percepcionesIva;
                     Context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                     Context.SaveChanges();
 
@@ -280,18 +332,18 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public int ValidateComprobante(string sucursal, string nofactura)
+        public int ValidateComprobante(int idproveedor,string sucursal, string nofactura)
         {
             int result;
 
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
 
 
-                    var validatc = (from c in Context.Table_Comprobante
-                                    where c.Sucursal == sucursal && c.NoFactura == nofactura
+                    var validatc = (from c in Context.Comprobantes
+                                    where c.Sucursal == sucursal && c.NoFactura == nofactura && c.IdProveedor==idproveedor
                                     select c).FirstOrDefault();
 
                     if (validatc != null)
@@ -318,14 +370,14 @@ namespace SISTEMAFACTURACIONV1._0
         {
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
 
-                    var comprobante = (from c in Context.Table_Comprobante
+                    var comprobante = (from c in Context.Comprobantes
                                 where c.Sucursal == sucursal && c.NoFactura==nofactura
                                 select c).First();
 
-                    Context.Table_Comprobante.Remove(comprobante);
+                    Context.Comprobantes.Remove(comprobante);
                     Context.SaveChanges();
                     int result = 1;
                     return result;
@@ -341,4 +393,8 @@ namespace SISTEMAFACTURACIONV1._0
         }
 
         }
+
+       
+
+       
 }

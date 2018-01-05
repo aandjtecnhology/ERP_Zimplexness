@@ -40,19 +40,18 @@
             // 
             // EncabezadoDeuda_ResultBindingSource
             // 
-            this.EncabezadoDeuda_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.DataModel.EncabezadoDeuda_Result);
+            this.EncabezadoDeuda_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.Model.EncabezadoDeuda_Result);
             // 
             // FacturasPendientesPago_ResultBindingSource
             // 
-            this.FacturasPendientesPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.DataModel.FacturasPendientesPago_Result);
+            this.FacturasPendientesPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.Model.FacturasPendientesPago_Result);
             // 
             // reportViewer1
             // 
-            this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "EncabezadoDeuda";
+            reportDataSource1.Name = "EncabezaDeuda";
             reportDataSource1.Value = this.EncabezadoDeuda_ResultBindingSource;
-            reportDataSource2.Name = "FacturasPendientes";
+            reportDataSource2.Name = "FacturasPendientesPago";
             reportDataSource2.Value = this.FacturasPendientesPago_ResultBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
@@ -60,7 +59,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(802, 401);
+            this.reportViewer1.Size = new System.Drawing.Size(809, 401);
             this.reportViewer1.TabIndex = 5;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -68,10 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 401);
+            this.ClientSize = new System.Drawing.Size(809, 401);
             this.Controls.Add(this.reportViewer1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteDeuda";
-            this.Text = "ReporteDeuda";
+            this.Text = "Reporte Deuda";
             this.Load += new System.EventHandler(this.ReporteDeuda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EncabezadoDeuda_ResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasPendientesPago_ResultBindingSource)).EndInit();

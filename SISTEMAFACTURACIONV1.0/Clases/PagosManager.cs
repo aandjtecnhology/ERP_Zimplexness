@@ -9,23 +9,23 @@ namespace SISTEMAFACTURACIONV1._0
    public class PagosManager
     {
 
-        public DataModel.Entities Context;
+        public Model.Entities Context;
 
 
 
         public int InsertarPagos(DateTime Fecha,double importe,string concepto)
         {
            
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
                 int result;
-                DataModel.Table_Pagos pagos = new DataModel.Table_Pagos();
+                Model.Pagos pagos = new Model.Pagos();
                 pagos.Fecha = Fecha;
                 pagos.Importe = importe;
                 pagos.Concepto = concepto;
                 
 
-                Context.Table_Pagos.Add(pagos);
+                Context.Pagos.Add(pagos);
                 Context.SaveChanges();
                 result=   pagos.Idpago;
 
@@ -41,16 +41,16 @@ namespace SISTEMAFACTURACIONV1._0
         public int InsertarPagoContado(DateTime Fecha,string concepto,double importe)
         {
 
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 int result;
-                DataModel.Table_Pagos pagos = new DataModel.Table_Pagos();
+                Model.Pagos pagos = new Model.Pagos();
                 pagos.Fecha = Fecha;
                 pagos.Importe = importe;
                 pagos.Concepto = concepto;
                 
 
-                Context.Table_Pagos.Add(pagos);
+                Context.Pagos.Add(pagos);
                 Context.SaveChanges();
                 result = pagos.Idpago;
 
@@ -71,15 +71,15 @@ namespace SISTEMAFACTURACIONV1._0
         public void InsertarDetallePago(int idpago,int idcomprobante)
         {
 
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                DataModel.Table_DetallePago dpago = new DataModel.Table_DetallePago();
+                Model.DetallesPago dpago = new Model.DetallesPago();
 
                 dpago.IdPago = idpago;
                 //dpago.idCuentaCorriente = idcuentacorriente;
                 dpago.idComprobante = idcomprobante;
 
-                Context.Table_DetallePago.Add(dpago);
+                Context.DetallesPago.Add(dpago);
                 Context.SaveChanges();
              
 
@@ -92,9 +92,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.EncabezadoDeuda_Result> EncabezaDeuda(int idprov)
+        public List<Model.EncabezadoDeuda_Result> EncabezadpDeuda(int idprov)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var query = Context.EncabezadoDeuda(idprov);
 
@@ -107,15 +107,15 @@ namespace SISTEMAFACTURACIONV1._0
       public void InsertarDetallePagoCuentaCorriente(int idpago, int idcomprobante)
             {
 
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                DataModel.Table_DetallePago dpago = new DataModel.Table_DetallePago();
+                Model.DetallesPago dpago = new Model.DetallesPago();
 
                 dpago.IdPago = idpago;
              
                 dpago.idComprobante = idcomprobante;
 
-                Context.Table_DetallePago.Add(dpago);
+                Context.DetallesPago.Add(dpago);
                 Context.SaveChanges();
 
 
@@ -129,9 +129,9 @@ namespace SISTEMAFACTURACIONV1._0
         }
 
        
-        public List<DataModel.OrdenPago_Result> OrdenPago(int idpago)
+        public List<Model.OrdenPago_Result> OrdenPago(int idpago)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
                 var query = Context.OrdenPago(idpago);
@@ -142,9 +142,9 @@ namespace SISTEMAFACTURACIONV1._0
             }
         }
 
-        public List<DataModel.FacturasPendientesPago_Result> ListFacturasPendientesPago(int idproveedor)
+        public List<Model.FacturasPendientesPago_Result> ListFacturasPendientesPago(int idproveedor)
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
 
                 var query = Context.FacturasPendientesPago(idproveedor);
@@ -158,18 +158,19 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public void InsertarMediosPago(int mediopago,string nocheque,int idbanco,double importe,int idpago)
+        public void InsertarMediosPago(int mediopago,DateTime FechaVencimiento,string nocheque,int idbanco,double importe,int idpago)
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                DataModel.Table_DetalleMediosPago Medio = new DataModel.Table_DetalleMediosPago();
+                Model.DetalleMediosPagos Medio = new Model.DetalleMediosPagos();
                 Medio.IdMedioPago = mediopago;
                 Medio.NoCheque = nocheque;
                 Medio.IdBanco = idbanco;
                 Medio.Importe = importe;
                 Medio.IdPago = idpago;
+                Medio.FechaVencimientoCheque = FechaVencimiento;
 
-                Context.Table_DetalleMediosPago.Add(Medio);
+                Context.DetalleMediosPagos.Add(Medio);
                 Context.SaveChanges();
             }
 
@@ -178,10 +179,10 @@ namespace SISTEMAFACTURACIONV1._0
         public int DevolverMedioPago(string mediopago)
         {
             int result = 0;
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from m in Context.Table_MedioPago
-                             where m.MediosPago == mediopago
+                var query = (from m in Context.MediosPago
+                             where m.MediosPago1 == mediopago
                              select m).FirstOrDefault();
                 if (query != null)
                 {
@@ -201,9 +202,9 @@ namespace SISTEMAFACTURACIONV1._0
         public int DevolverBanco(string banco)
         {
             int result = 0;
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from m in Context.Table_Banco   
+                var query = (from m in Context.Bancos   
                              where m.Nombre == banco
                              select m).FirstOrDefault();
                 if (query != null)
@@ -220,9 +221,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.EncabezadoOrdenPago_Result> EncabezadoOdern(int idpago)
+        public List<Model.EncabezadoOrdenPago_Result> EncabezadoOdern(int idpago)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
                 var query = Context.EncabezadoOrdenPago(idpago);
@@ -234,9 +235,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.SeleccionarMediosDePagos_Result> MediosPagos(int idpago)
+        public List<Model.SeleccionarMediosDePagos_Result> MediosPagos(int idpago)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
 
                 var query = Context.SeleccionarMediosDePagos(idpago);
@@ -252,14 +253,14 @@ namespace SISTEMAFACTURACIONV1._0
         public void InsertarMediosPagoContado(int mediopago,double importe, int idpago)
         {
          
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                DataModel.Table_DetalleMediosPago Medio = new DataModel.Table_DetalleMediosPago();
+                Model.DetalleMediosPagos Medio = new Model.DetalleMediosPagos();
                 Medio.IdMedioPago = mediopago;
                 Medio.Importe = importe;
                 Medio.IdPago = idpago;
 
-                Context.Table_DetalleMediosPago.Add(Medio);
+                Context.DetalleMediosPagos.Add(Medio);
                 Context.SaveChanges();
 
             }   
@@ -269,13 +270,13 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void ActualizarImportePago(int idpago)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from p in Context.Table_Pagos
+                var query = (from p in Context.Pagos
                              where p.Idpago == idpago
                              select p).ToList();
 
-                var query2 = (from mp in Context.Table_DetalleMediosPago
+                var query2 = (from mp in Context.DetalleMediosPagos
                               where mp.IdPago == idpago
                               select mp.Importe).ToString() ;
 
@@ -284,7 +285,7 @@ namespace SISTEMAFACTURACIONV1._0
 
                 foreach (var item in query)
                 {
-                    Context.Table_Pagos.Attach(item);
+                    Context.Pagos.Attach(item);
 
                     item.Importe =Convert.ToDouble(query2);
 

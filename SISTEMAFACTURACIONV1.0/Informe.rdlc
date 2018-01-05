@@ -200,8 +200,8 @@
         </Style>
       </Rectangle>
       <Line Name="Line2">
-        <Top>9.26578cm</Top>
-        <Left>0.52416cm</Left>
+        <Top>4.82078cm</Top>
+        <Left>0.28604cm</Left>
         <Height>0cm</Height>
         <Width>15.41452cm</Width>
         <ZIndex>1</ZIndex>
@@ -229,8 +229,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
-        <Top>8.52467cm</Top>
-        <Left>0.42345cm</Left>
+        <Top>4.07967cm</Top>
+        <Left>0.28604cm</Left>
         <Height>0.6cm</Height>
         <Width>4.35208cm</Width>
         <ZIndex>2</ZIndex>
@@ -248,16 +248,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.54426cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.54426cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.54426cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.54426cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -333,7 +333,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre</Value>
+                              <Value>Banco</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -532,10 +532,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>MediosPago</DataSetName>
-        <Top>10.89766cm</Top>
-        <Left>0.9393cm</Left>
+        <Top>6.45266cm</Top>
+        <Left>0.52416cm</Left>
         <Height>1.2cm</Height>
-        <Width>10cm</Width>
+        <Width>14.17704cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -636,7 +636,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Sucursal</Value>
+                              <Value>Punto Venta</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -911,8 +911,8 @@
         </Style>
       </Tablix>
       <Line Name="Line3">
-        <Top>10.71272cm</Top>
-        <Left>0.42345cm</Left>
+        <Top>6.26772cm</Top>
+        <Left>0.28604cm</Left>
         <Height>0cm</Height>
         <Width>15.41452cm</Width>
         <ZIndex>5</ZIndex>
@@ -1146,7 +1146,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>EncabezadoOrden</DataSetName>
-        <Top>9.40689cm</Top>
+        <Top>4.96189cm</Top>
         <Left>0.52416cm</Left>
         <Height>1.2cm</Height>
         <Width>13.09153cm</Width>
@@ -1159,11 +1159,95 @@
           <Color>#ecf0f1</Color>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Firma</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>7.82905cm</Top>
+        <Left>0.52416cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.41521cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>8.42905cm</Top>
+        <Left>2.13812cm</Left>
+        <Height>0cm</Height>
+        <Width>3.57188cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Aclaracion</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>7.82905cm</Top>
+        <Left>6.19747cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.12958cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line4">
+        <Top>8.42905cm</Top>
+        <Left>8.63164cm</Left>
+        <Height>0cm</Height>
+        <Width>3.57188cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>5.21414in</Height>
+    <Height>3.4433in</Height>
     <Style />
   </Body>
-  <Width>8.71879in</Width>
+  <Width>6.32296in</Width>
   <Page>
     <PageHeader>
       <Height>3.39641cm</Height>
@@ -1181,7 +1265,8 @@
                     <TextRun>
                       <Value>Empresa:Servicios Sitem S.R.L</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                         <Color>#2c3e50</Color>
                       </Style>
                     </TextRun>
@@ -1213,7 +1298,8 @@
                     <TextRun>
                       <Value>Cuit:30-69321425-0</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                         <Color>#2c3e50</Color>
                       </Style>
                     </TextRun>
@@ -1246,7 +1332,8 @@
                     <TextRun>
                       <Value>Direccion: Arenales 244, Moron, Buenos Aires</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                         <Color>#2c3e50</Color>
                       </Style>
                     </TextRun>
@@ -1258,7 +1345,7 @@
               <Top>1.50604cm</Top>
               <Left>1.14723cm</Left>
               <Height>0.6cm</Height>
-              <Width>9.47145cm</Width>
+              <Width>8.25437cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1275,7 +1362,8 @@
               <Value>LogoSITEM</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.27076cm</Top>
-              <Height>1.5cm</Height>
+              <Left>0.11402cm</Left>
+              <Height>1.28805cm</Height>
               <Width>0.97084cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -1286,10 +1374,10 @@
             </Image>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Top>0.68474cm</Top>
-          <Left>0.36255cm</Left>
+          <Top>1.01988cm</Top>
+          <Left>0.25309cm</Left>
           <Height>2.23542cm</Height>
-          <Width>10.75314cm</Width>
+          <Width>10.03295cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1316,8 +1404,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ReportName</rd:DefaultName>
-          <Top>0.42016cm</Top>
-          <Left>11.29208cm</Left>
+          <Top>0.27877cm</Top>
+          <Left>6.54488cm</Left>
           <Height>0.56472cm</Height>
           <Width>4.13581cm</Width>
           <ZIndex>1</ZIndex>
@@ -1339,47 +1427,6 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageFooter>
-      <Height>1.61396cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="OverallPageNumber">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!OverallPageNumber</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>OverallPageNumber</rd:DefaultName>
-          <Top>0.31433cm</Top>
-          <Left>12.61632cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
@@ -1391,21 +1438,21 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="SISTEMAFACTURACIONV1_0DataModel">
+    <DataSource Name="SISTEMAFACTURACIONV1_0Model">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>f0371c6b-37a3-4ea9-8910-45e942139d50</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="SISTEMAFACTURACIONV1_0DataModel1">
+    <DataSource Name="SISTEMAFACTURACIONV1_0Model1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>e03cbfc7-8884-4acf-aa04-76f4fc52d659</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="SISTEMAFACTURACIONV1_0DataModel2">
+    <DataSource Name="SISTEMAFACTURACIONV1_0Model2">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
@@ -1416,7 +1463,7 @@
   <DataSets>
     <DataSet Name="EncabezadoOrden">
       <Query>
-        <DataSourceName>SISTEMAFACTURACIONV1_0DataModel</DataSourceName>
+        <DataSourceName>SISTEMAFACTURACIONV1_0Model</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1442,14 +1489,14 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>SISTEMAFACTURACIONV1._0.DataModel</rd:DataSetName>
+        <rd:DataSetName>SISTEMAFACTURACIONV1._0.Model</rd:DataSetName>
         <rd:TableName>EncabezadoOrdenPago_Result</rd:TableName>
-        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.DataModel.EncabezadoOrdenPago_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.Model.EncabezadoOrdenPago_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="OrdenPago">
       <Query>
-        <DataSourceName>SISTEMAFACTURACIONV1_0DataModel1</DataSourceName>
+        <DataSourceName>SISTEMAFACTURACIONV1_0Model1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1475,14 +1522,14 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>SISTEMAFACTURACIONV1._0.DataModel</rd:DataSetName>
+        <rd:DataSetName>SISTEMAFACTURACIONV1._0.Model</rd:DataSetName>
         <rd:TableName>OrdenPago_Result</rd:TableName>
-        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.DataModel.OrdenPago_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.Model.OrdenPago_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="MediosPago">
       <Query>
-        <DataSourceName>SISTEMAFACTURACIONV1_0DataModel2</DataSourceName>
+        <DataSourceName>SISTEMAFACTURACIONV1_0Model2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1504,9 +1551,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>SISTEMAFACTURACIONV1._0.DataModel</rd:DataSetName>
+        <rd:DataSetName>SISTEMAFACTURACIONV1._0.Model</rd:DataSetName>
         <rd:TableName>SeleccionarMediosDePagos_Result</rd:TableName>
-        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.DataModel.SeleccionarMediosDePagos_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>SISTEMAFACTURACIONV1._0.Model.SeleccionarMediosDePagos_Result, SISTEMAFACTURACIONV1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

@@ -19,18 +19,18 @@ namespace SISTEMAFACTURACIONV1._0
 
         private void AlmacenControl_Load(object sender, EventArgs e)
         {
-            //llenar comboboxEncargados
-            Clases.EmpleadoManager Empleado = new Clases.EmpleadoManager();
-            Clases.AlmacenManager Almacenm = new Clases.AlmacenManager();
-            comboBoxEncargado.DataSource = Empleado.ListarEmpleados();
-            comboBoxEncargado.DisplayMember ="Nombres";
-            comboBoxEncargado.ValueMember = "IDEmpleado";
+            ////llenar comboboxEncargados
+            //Clases.EmpleadoManager Empleado = new Clases.EmpleadoManager();
+            //Clases.AlmacenManager Almacenm = new Clases.AlmacenManager();
+            //comboBoxEncargado.DataSource = Empleado.ListarEmpleados();
+            //comboBoxEncargado.DisplayMember ="Nombres";
+            //comboBoxEncargado.ValueMember = "IDEmpleado";
 
-            comboBoxZonas.DataSource = Almacenm.ListarZonas();
-            comboBoxZonas.DisplayMember = "Zonas";
-            comboBoxZonas.ValueMember="IdZona";
+            //comboBoxZonas.DataSource = Almacenm.ListarZonas();
+            //comboBoxZonas.DisplayMember = "Zonas";
+            //comboBoxZonas.ValueMember="IdZona";
 
-            dataGridView1.DataSource = Almacenm.ListarAlamcenes();
+            ////dataGridView1.DataSource = Almacenm.ListarAlamcenes();
 
 
         }
@@ -42,33 +42,33 @@ namespace SISTEMAFACTURACIONV1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Clases.AlmacenManager A = new Clases.AlmacenManager();
-                if (string.IsNullOrEmpty(textBoxNombre.Text)==true)
-                {
-                    MessageBox.Show("Error, Debe Insertar los datos","Sistema Gestion de Compras",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (A.InsertarAlmacen(dateTimePickerFecha.Value, textBoxNombre.Text, textBoxCodigo.Text, int.Parse(comboBoxEncargado.SelectedValue.ToString()), int.Parse(comboBoxZonas.SelectedValue.ToString()))==1)
-                    {
-                        MessageBox.Show("Se Inserto el Almacen con exito","Sistema de Gestion de Compras",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        dataGridView1.DataSource = A.ListarAlamcenes();
-                    }
-                    ;
+            //try
+            //{
+            //    Clases.AlmacenManager A = new Clases.AlmacenManager();
+            //    if (string.IsNullOrEmpty(textBoxNombre.Text)==true)
+            //    {
+            //        MessageBox.Show("Error, Debe Insertar los datos","Sistema Gestion de Compras",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    else
+            //    {
+            //        if (A.InsertarAlmacen(dateTimePickerFecha.Value, textBoxNombre.Text, textBoxCodigo.Text, int.Parse(comboBoxEncargado.SelectedValue.ToString()), int.Parse(comboBoxZonas.SelectedValue.ToString()))==1)
+            //        {
+            //            MessageBox.Show("Se Inserto el Almacen con exito","Sistema de Gestion de Compras",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            //            dataGridView1.DataSource = A.ListarAlamcenes();
+            //        }
+            //        ;
 
 
-                }
+            //    }
 
 
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         private void comboBoxZonas_SelectedIndexChanged(object sender, EventArgs e)

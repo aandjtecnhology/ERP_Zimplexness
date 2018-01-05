@@ -16,7 +16,22 @@ namespace SISTEMAFACTURACIONV1._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogForm());
+     
+
+            //LOGINFORM  loginfrm = new LOGINFORM();
+            //loginfrm.ShowDialog();
+
+
+
+
+            //if (loginfrm.DialogResult == DialogResult.OK)
+            
+                
+                Application.Run(new MainForm());
+               
+
+
+
         }
     }
 }

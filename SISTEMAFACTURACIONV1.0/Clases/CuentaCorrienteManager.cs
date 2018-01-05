@@ -9,15 +9,15 @@ namespace SISTEMAFACTURACIONV1._0
    public class CuentaCorrienteManager
 
     {
-       public DataModel.Entities Context;
+       public Model.Entities Context;
 
         public int ValidateCuentaCorriente(string nombre)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
 
             {
                 int result;
-                var validatecuenta = (from c in Context.Table_CuentaCorriente
+                var validatecuenta = (from c in Context.CuentaCorriente
                                       where c.Nombre == nombre
                                       select c).FirstOrDefault();
                 if (validatecuenta != null)
@@ -39,9 +39,9 @@ namespace SISTEMAFACTURACIONV1._0
         public int DevolverIDCuentaCorriente(int idproveedor)
         {
             int result;
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from c in Context.Table_CuentaCorriente
+                var query = (from c in Context.CuentaCorriente
                              where c.IDProveedor==idproveedor
                              select c.IdCuentaCorriente).FirstOrDefault().ToString();
                
@@ -58,11 +58,11 @@ namespace SISTEMAFACTURACIONV1._0
 
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
 
 
-                    var validatprov = (from c in Context.Table_CuentaCorriente
+                    var validatprov = (from c in Context.CuentaCorriente
                                        where c.IDProveedor==idproveedor
                                        select c).FirstOrDefault();
 

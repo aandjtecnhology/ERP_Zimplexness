@@ -9,15 +9,15 @@ namespace SISTEMAFACTURACIONV1._0
   public  class ArticulosComprobanteManager
     {
 
-        public DataModel.Entities Context;
-        public DataModel.Table_DetallesComprobanteArticulos ComprobanteArticulo;
+        public Model.Entities Context;
+        public Model.DetallesComprobanteArticulos ComprobanteArticulo;
 
-        public void InsertarArticuloComprobante(DataModel.Table_DetallesComprobanteArticulos comp)
+        public void InsertarArticuloComprobante(Model.DetallesComprobanteArticulos comp)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 
-                Context.Table_DetallesComprobanteArticulos.Add(comp);
+                Context.DetallesComprobanteArticulos.Add(comp);
                 Context.SaveChanges();
             }
 
@@ -26,9 +26,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         public void InsertarTableArticuloComprobante(int idcomprobante,int idarticulo,double cant,double precio,double ivacompra,double ivacalculado,double importe)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                ComprobanteArticulo = new DataModel.Table_DetallesComprobanteArticulos();
+                ComprobanteArticulo = new Model.DetallesComprobanteArticulos();
                 ComprobanteArticulo.IdComprobante = idcomprobante;
                 ComprobanteArticulo.IdArticulo = idarticulo;
                 ComprobanteArticulo.Cantidad = cant;
@@ -36,19 +36,19 @@ namespace SISTEMAFACTURACIONV1._0
                 ComprobanteArticulo.Iva = ivacompra;
                 ComprobanteArticulo.IvaCalculado = ivacalculado;
                 ComprobanteArticulo.Importe =importe;
-                Context.Table_DetallesComprobanteArticulos.Add(ComprobanteArticulo);
+                Context.DetallesComprobanteArticulos.Add(ComprobanteArticulo);
                 Context.SaveChanges();
             }
 
 
         }
 
-        public List<DataModel.Table_DetallesComprobanteArticulos> ListarArticulosComprobante(int idcomprobante)
+        public List<Model.DetallesComprobanteArticulos> ListarArticulosComprobante(int idcomprobante)
         {
 
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var query = (from artcomp in Context.Table_DetallesComprobanteArticulos
+                var query = (from artcomp in Context.DetallesComprobanteArticulos
                              where artcomp.IdComprobante==idcomprobante
                              select artcomp).ToList();
                 return query;       
@@ -61,15 +61,15 @@ namespace SISTEMAFACTURACIONV1._0
         {
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
                    
-                    var detallecompart = (from a in Context.Table_DetallesComprobanteArticulos
+                    var detallecompart = (from a in Context.DetallesComprobanteArticulos
                                        where a.idTable_DetallesComprobanteArticulos==idcomproart
                                        select a).First();
 
 
-                    Context.Table_DetallesComprobanteArticulos.Remove(detallecompart);
+                    Context.DetallesComprobanteArticulos.Remove(detallecompart);
                     Context.SaveChanges();
                     int result = 1;
                     return result;
@@ -82,6 +82,16 @@ namespace SISTEMAFACTURACIONV1._0
 
                 throw;
             }
+        }
+
+        public List<Model.SeleccionarDetalleComprobantesArticulos_Result> SeleccionarDetallesComprobantesArticulos(int idcomprobante)
+        {
+            using (Context = new Model.Entities())
+            {
+                var query = Context.SeleccionarDetalleComprobantesArticulos(idcomprobante);
+                return query.ToList();
+            }
+
         }
 
 

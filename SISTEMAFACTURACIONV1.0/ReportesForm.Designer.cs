@@ -32,14 +32,26 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.EncabezadoOrdenPago_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrdenPago_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SeleccionarMediosDePagos_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.EncabezadoOrdenPago_ResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenPago_ResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SeleccionarMediosDePagos_ResultBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // EncabezadoOrdenPago_ResultBindingSource
+            // 
+            this.EncabezadoOrdenPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.Model.EncabezadoOrdenPago_Result);
+            // 
+            // OrdenPago_ResultBindingSource
+            // 
+            this.OrdenPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.Model.OrdenPago_Result);
+            // 
+            // SeleccionarMediosDePagos_ResultBindingSource
+            // 
+            this.SeleccionarMediosDePagos_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.Model.SeleccionarMediosDePagos_Result);
             // 
             // reportViewer1
             // 
@@ -55,23 +67,11 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SISTEMAFACTURACIONV1._0.Informe.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Location = new System.Drawing.Point(20, 60);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(885, 550);
+            this.reportViewer1.Size = new System.Drawing.Size(845, 470);
             this.reportViewer1.TabIndex = 6;
-            // 
-            // EncabezadoOrdenPago_ResultBindingSource
-            // 
-            this.EncabezadoOrdenPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.DataModel.EncabezadoOrdenPago_Result);
-            // 
-            // OrdenPago_ResultBindingSource
-            // 
-            this.OrdenPago_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.DataModel.OrdenPago_Result);
-            // 
-            // SeleccionarMediosDePagos_ResultBindingSource
-            // 
-            this.SeleccionarMediosDePagos_ResultBindingSource.DataSource = typeof(SISTEMAFACTURACIONV1._0.DataModel.SeleccionarMediosDePagos_Result);
             // 
             // ReportesForm
             // 
@@ -79,10 +79,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 550);
             this.Controls.Add(this.reportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ReportesForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReportesForm";
+            this.Text = "Orden de Pago";
             this.Load += new System.EventHandler(this.ReportesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EncabezadoOrdenPago_ResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenPago_ResultBindingSource)).EndInit();

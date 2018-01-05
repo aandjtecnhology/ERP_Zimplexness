@@ -9,17 +9,21 @@ namespace SISTEMAFACTURACIONV1._0
    public class ProveedorManager
     {
         //declaracion de DataContext y de la tabla proveedores
-        public DataModel.Entities Context;
-        public  DataModel.Table_Proveedores proveedor = new DataModel.Table_Proveedores();
-        public DataModel.Table_CuentaCorriente cuentacorriente;
+        public Model.Entities Context;
+        public Model.Proveedores proveedor = new Model.Proveedores();
+        public Model.CuentaCorriente cuentacorriente;
+        public Model.DetalleProveedor_ProductorSeguro Productor;
         
 
-        public void insertar_proveedor(DataModel.Table_Proveedores proveedor)
+        public int insertar_proveedor(Model.Proveedores proveedor)
         {
-            using (Context=new DataModel.Entities())
+            int result = 0;
+            using (Context=new Model.Entities())
             {
-                Context.Table_Proveedores.Add(proveedor);
+                Context.Proveedores.Add(proveedor);
                 Context.SaveChanges();
+                result = proveedor.IdProveedores;
+                return result;
 
             }
 
@@ -30,32 +34,33 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public List<DataModel.View_Proveedores> ListarProveedores()
+        public List<Model.View_Proveedores> ListarProveedores()
         {
 
-            using (Context=new DataModel.Entities()) {
+            using (Context=new Model.Entities()) {
                 var query = (from listproveedor in Context.View_Proveedores select listproveedor).ToList();
                 return query;
             }
         }
 
-        public List<DataModel.View_Proveedores> filtrarproveedores(string filtronombre)
+        public List<Model.View_Proveedores> filtrarproveedores(string filtronombre)
         {
-            using (Context = new DataModel.Entities()) {
+            using (Context = new Model.Entities()) {
                 var filtro = (from p in Context.View_Proveedores where p.Nombre.Contains(filtronombre.ToUpper()) select p).ToList();
                 return filtro;
-            } }
+            }
+        }
 
         public int EliminarProveedor(string cuit)
         {
             try
             {
-                using (Context=new DataModel.Entities())
+                using (Context=new Model.Entities())
                 {
 
-                    var prov = (from p in Context.Table_Proveedores where p.Cuit == cuit select p).First();
+                    var prov = (from p in Context.Proveedores where p.Cuit == cuit select p).First();
 
-                    Context.Table_Proveedores.Remove(prov);
+                    Context.Proveedores.Remove(prov);
                     Context.SaveChanges();
                     int result = 1;
                     return result;
@@ -81,10 +86,10 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public DataModel.Table_Proveedores EncontrarProveedor(string cuit)
+        public Model.Proveedores EncontrarProveedor(string cuit)
         {
-            using (Context=new DataModel.Entities()) {
-                var query = (from p in Context.Table_Proveedores
+            using (Context=new Model.Entities()) {
+                var query = (from p in Context.Proveedores
                              where p.Cuit == cuit
                              select p).FirstOrDefault();
 
@@ -92,23 +97,49 @@ namespace SISTEMAFACTURACIONV1._0
             }
         }
 
-       
+        public List<Model.ProductoresSeguro> ListarProductorSeguro()
+        {
+            using (Context=new Model.Entities())
+            {
+                var query = (from p in Context.ProductoresSeguro
+                             select p).ToList();
+
+                return query;
+            }
+
+
+        }
+
+        public void InsertarProductorSeguro(int idproveedor,int idproductor)
+        {
+         
+            using (Context=new Model.Entities())
+            {
+                Productor = new Model.DetalleProveedor_ProductorSeguro();
+                Productor.IdProveedor = idproveedor;
+                Productor.IdProductorSeguro = idproductor;
+                Context.DetalleProveedor_ProductorSeguro.Add(Productor);
+                Context.SaveChanges();
+               
+
+
+            }
 
 
 
-        
+        }
 
         public void ActualizarProveedor(string nombre, string razon,string telefono,string direccion,string cuit)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                var prov = (from p in Context.Table_Proveedores
+                var prov = (from p in Context.Proveedores
                             where p.Cuit == cuit
                             select p).ToList();
 
                 foreach (var item in prov)
                 {
-                    Context.Table_Proveedores.Attach(item);
+                    Context.Proveedores.Attach(item);
                     item.Nombre = nombre;
                     item.Razon = razon;
                     item.Telefono = telefono;
@@ -125,9 +156,9 @@ namespace SISTEMAFACTURACIONV1._0
         public int DevolverIdPRoveedorporNombre(string nombre)
         {
             int result = 0;
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query =( from p in Context.Table_Proveedores
+                var query =( from p in Context.Proveedores
                             where p.Nombre == nombre
                             select p.IdProveedores).FirstOrDefault().ToString() ;
                result=int.Parse(query);
@@ -137,11 +168,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         }
 
-        public void CrearCuentaCorriente(DataModel.Table_CuentaCorriente cuentacorriente)
+        public void CrearCuentaCorriente(Model.CuentaCorriente cuentacorriente)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
-                Context.Table_CuentaCorriente.Add(cuentacorriente);
+                Context.CuentaCorriente.Add(cuentacorriente);
                 Context.SaveChanges();
 
 
@@ -153,11 +184,11 @@ namespace SISTEMAFACTURACIONV1._0
 
         public int devolverIDProveedorCUIT(string cuit)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 int result = 0;
 
-                var query = (from p in Context.Table_Proveedores
+                var query = (from p in Context.Proveedores
                              where p.Cuit == cuit
                              select p.IdProveedores).FirstOrDefault();
 
@@ -172,11 +203,11 @@ namespace SISTEMAFACTURACIONV1._0
 
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
 
 
-                    var validatprov = (from p in Context.Table_Proveedores
+                    var validatprov = (from p in Context.Proveedores
                                        where p.Cuit == cuit
                                        select p).FirstOrDefault();
 
@@ -207,11 +238,11 @@ namespace SISTEMAFACTURACIONV1._0
 
             try
             {
-                using (Context = new DataModel.Entities())
+                using (Context = new Model.Entities())
                 {
 
 
-                    var validatprov = (from c in Context.Table_CuentaCorriente
+                    var validatprov = (from c in Context.CuentaCorriente
                                        where c.Nombre == cuit
                                        select c).FirstOrDefault();
 
@@ -238,9 +269,9 @@ namespace SISTEMAFACTURACIONV1._0
 
         public string DevolverCuit(int idproveedor)
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
-                var query = (from p in Context.Table_Proveedores
+                var query = (from p in Context.Proveedores
                              where p.IdProveedores == idproveedor
                              select p.Cuit).ToString();
                 return query;
@@ -250,10 +281,10 @@ namespace SISTEMAFACTURACIONV1._0
 
         public List<string> listarNombreProveedores()
         {
-            using (Context=new DataModel.Entities())
+            using (Context=new Model.Entities())
             {
 
-                var query = (from p in Context.Table_Proveedores
+                var query = (from p in Context.Proveedores
                              select p.Nombre).ToList();
 
                 return query;
@@ -263,15 +294,37 @@ namespace SISTEMAFACTURACIONV1._0
         }
 
 
-        public List<DataModel.View_Proveedores> filtrarproveedoresRazon(string filtroRazon)
+        public List<Model.View_Proveedores> filtrarproveedoresRazon(string filtroRazon)
         {
-            using (Context = new DataModel.Entities())
+            using (Context = new Model.Entities())
             {
                 var filtro = (from p in Context.View_Proveedores where p.Razon.Contains(filtroRazon.ToUpper()) select p).ToList();
                 return filtro;
             }
         }
 
+        public List<Model.RubroProveedor> ListarRubros()
+        {
+            using (Context=new Model.Entities())
+            {
+                var query = (from rubro in Context.RubroProveedor
+                             select rubro).ToList();
+                return query;
+
+
+
+            }
+
+        }
+
+        public List<Model.View_Proveedores> filtrarPorRubros(string filtronombre)
+        {
+            using (Context = new Model.Entities())
+            {
+                var filtro = (from p in Context.View_Proveedores where p.RubroProveedor.Contains(filtronombre.ToUpper()) select p).ToList();
+                return filtro;
+            }
+        }
 
 
     }

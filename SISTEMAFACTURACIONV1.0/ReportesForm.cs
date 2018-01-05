@@ -13,7 +13,7 @@ using System.Data.Entity.SqlServer;
 
 namespace SISTEMAFACTURACIONV1._0
 {
-    public partial class ReportesForm : Form
+    public partial class ReportesForm : MetroFramework.Forms.MetroForm
     {
         public ReportesForm()
         {
